@@ -1,0 +1,2926 @@
+/* =========================================================
+   PHISHGUARD — CAMPAIGNS PAGE
+   FINAL PROFESSIONAL LAYOUT
+   ========================================================= */
+
+
+/* =========================================================
+   PAGE CONTENT
+   ========================================================= */
+
+.dashboard-content {
+    width: min(1180px, calc(100% - 72px));
+    max-width: 1180px;
+
+    margin: 0 auto;
+
+    padding: 42px 0 70px;
+
+    min-width: 0;
+}
+
+
+/* =========================================================
+   PAGE INTRO
+   ========================================================= */
+
+.welcome-row {
+    width: 100%;
+
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 28px;
+}
+
+.welcome-row > div:first-child {
+    min-width: 0;
+}
+
+.welcome-row .section-label {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.welcome-row h2 {
+    margin-top: 9px;
+
+    color: #ffffff;
+
+    font-size: 30px;
+
+    font-weight: 600;
+
+    line-height: 1.15;
+
+    letter-spacing: -0.045em;
+}
+
+.welcome-row p {
+    margin-top: 8px;
+
+    color: #707786;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   TOP CREATE BUTTON
+   ========================================================= */
+
+.create-button {
+    flex: 0 0 auto;
+
+    height: 44px;
+
+    min-width: 150px;
+
+    padding: 0 18px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    border: 1px solid rgba(51, 112, 255, 0.55);
+
+    border-radius: 9px;
+
+    background: #3370ff;
+
+    color: #ffffff;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px rgba(51, 112, 255, 0.20);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.create-button:hover {
+    transform: translateY(-2px);
+
+    background: #2864ed;
+
+    box-shadow:
+        0 15px 35px rgba(51, 112, 255, 0.30);
+}
+
+
+/* =========================================================
+   ALL PANELS
+   ========================================================= */
+
+.panel {
+    width: 100%;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.035),
+            rgba(255,255,255,0.012)
+        );
+
+    border: 1px solid rgba(255,255,255,0.09);
+
+    border-radius: 15px;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,0.012),
+        0 25px 70px rgba(0,0,0,0.20);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   PANEL HEADER
+   ========================================================= */
+
+.panel-header {
+    width: 100%;
+
+    min-height: 76px;
+
+    padding: 20px 26px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.055);
+}
+
+.panel-header h3 {
+    margin-top: 6px;
+
+    color: #ffffff;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    line-height: 1.3;
+
+    letter-spacing: -0.03em;
+}
+
+
+/* =========================================================
+   CAMPAIGN BUILDER
+   ========================================================= */
+
+.campaign-builder {
+    margin: 0;
+
+    width: 100%;
+}
+
+.campaign-builder form {
+    width: 100%;
+
+    padding: 28px;
+}
+
+
+/* =========================================================
+   FORM GRID
+   ========================================================= */
+
+.form-grid {
+    width: 100%;
+
+    display: grid;
+
+    gap: 20px;
+}
+
+.form-grid.two-columns {
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+}
+
+
+/* =========================================================
+   FORM GROUP
+   ========================================================= */
+
+.form-group {
+    width: 100%;
+
+    min-width: 0;
+
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #aeb4c1;
+
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 8px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   FORM CONTROLS
+   ========================================================= */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    min-width: 0;
+
+    display: block;
+
+    outline: none;
+
+    border: 1px solid rgba(255,255,255,0.09);
+
+    border-radius: 9px;
+
+    background: rgba(0,0,0,0.22);
+
+    color: #ffffff;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 10px;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group input,
+.form-group select {
+    height: 44px;
+
+    padding: 0 13px;
+}
+
+.form-group textarea {
+    min-height: 110px;
+
+    padding: 12px 13px;
+
+    resize: vertical;
+
+    line-height: 1.65;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #505662;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: rgba(51,112,255,0.65);
+
+    background: rgba(0,0,0,0.30);
+
+    box-shadow:
+        0 0 0 3px rgba(51,112,255,0.08);
+}
+
+
+/* =========================================================
+   AUTOMATIC GENERATOR
+   ========================================================= */
+
+.generator-section {
+    width: 100%;
+
+    margin: 4px 0 24px;
+
+    padding: 22px;
+
+    border: 1px solid rgba(51,112,255,0.18);
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(51,112,255,0.055),
+            rgba(255,255,255,0.012)
+        );
+}
+
+.generator-heading {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 20px;
+}
+
+.generator-heading h4 {
+    margin-top: 6px;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    letter-spacing: -0.025em;
+}
+
+.generator-status {
+    flex: 0 0 auto;
+
+    min-height: 25px;
+
+    padding: 0 10px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(72,227,139,0.20);
+
+    border-radius: 999px;
+
+    background: rgba(72,227,139,0.05);
+
+    color: #48e38b;
+
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 7px;
+
+    letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   GENERATE BUTTON
+   ========================================================= */
+
+#generateButton {
+    width: 100%;
+
+    height: 42px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    margin-top: 2px;
+
+    border: 1px solid rgba(51,112,255,0.35);
+
+    border-radius: 9px;
+
+    background: rgba(51,112,255,0.08);
+
+    color: #69b7ff;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+#generateButton:hover:not(:disabled) {
+    background: rgba(51,112,255,0.16);
+
+    border-color: rgba(51,112,255,0.55);
+
+    transform: translateY(-1px);
+}
+
+#generateButton:disabled {
+    opacity: 0.55;
+
+    cursor: wait;
+}
+
+
+/* =========================================================
+   GENERATED CONTENT
+   ========================================================= */
+
+.generated-content {
+    width: 100%;
+}
+
+.generated-content .form-group:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   CREATE AREA
+   ========================================================= */
+
+.checkbox-row {
+    width: fit-content;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-top: 2px;
+    margin-bottom: 20px;
+
+    color: #9da4b2;
+
+    font-size: 10px;
+
+    cursor: pointer;
+}
+
+.checkbox-row input {
+    width: 14px;
+    height: 14px;
+
+    margin: 0;
+
+    accent-color: #3370ff;
+}
+
+
+/* =========================================================
+   CREATE CAMPAIGN
+   ========================================================= */
+
+#createButton {
+    min-width: 155px;
+
+    height: 44px;
+
+    padding: 0 18px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    border: 1px solid rgba(51,112,255,0.55);
+
+    border-radius: 9px;
+
+    background: #3370ff;
+
+    color: #ffffff;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px rgba(51,112,255,0.20);
+
+    transition: 0.2s ease;
+}
+
+#createButton:hover:not(:disabled) {
+    transform: translateY(-2px);
+
+    background: #2864ed;
+
+    box-shadow:
+        0 15px 35px rgba(51,112,255,0.30);
+}
+
+#createButton:disabled {
+    opacity: 0.60;
+
+    cursor: wait;
+}
+
+#createText {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+#createLoader {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+#createLoader.hidden {
+    display: none;
+}
+
+
+/* =========================================================
+   GENERATED LINK
+   ========================================================= */
+
+.link-result {
+    margin-top: 22px;
+
+    padding: 26px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 18px;
+
+    border: 1px solid rgba(72,227,139,0.16);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(72,227,139,0.035),
+            rgba(255,255,255,0.012)
+        );
+}
+
+.link-result[hidden] {
+    display: none;
+}
+
+.link-result-icon {
+    width: 42px;
+    height: 42px;
+
+    flex: 0 0 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(72,227,139,0.15);
+
+    border-radius: 10px;
+
+    background: rgba(72,227,139,0.06);
+
+    color: #48e38b;
+}
+
+.link-result-content {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.link-result-content h3 {
+    margin-top: 6px;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 600;
+}
+
+.link-result-content p {
+    margin-top: 6px;
+
+    color: #737a89;
+
+    font-size: 9px;
+}
+
+.generated-link-box {
+    width: 100%;
+
+    margin-top: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+#generatedLink {
+    flex: 1;
+
+    min-width: 0;
+
+    display: block;
+
+    padding: 11px 12px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 8px;
+
+    background: rgba(0,0,0,0.22);
+
+    color: #69b7ff;
+
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 8px;
+
+    line-height: 1.5;
+
+    word-break: break-all;
+}
+
+.copy-button,
+.secondary-button {
+    height: 40px;
+
+    padding: 0 14px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border: 1px solid rgba(51,112,255,0.25);
+
+    border-radius: 8px;
+
+    background: rgba(51,112,255,0.06);
+
+    color: #69b7ff;
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition: 0.2s ease;
+}
+
+.copy-button:hover,
+.secondary-button:hover {
+    background: rgba(51,112,255,0.14);
+
+    border-color: rgba(51,112,255,0.45);
+}
+
+.link-actions {
+    margin-top: 12px;
+
+    display: flex;
+
+    justify-content: flex-start;
+}
+
+
+/* =========================================================
+   EXISTING CAMPAIGNS
+   ========================================================= */
+
+.campaigns-panel {
+    margin-top: 22px;
+}
+
+.panel-count {
+    min-height: 27px;
+
+    padding: 0 11px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.025);
+
+    color: #8e95a3;
+
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 0.05em;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   CAMPAIGN LIST
+   ========================================================= */
+
+.campaign-list {
+    width: 100%;
+}
+
+
+/* =========================================================
+   CAMPAIGN CARD / ROW
+   ========================================================= */
+
+.campaign-item {
+    width: 100%;
+
+    min-height: 94px;
+
+    padding: 20px 26px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.055);
+
+    transition:
+        background 0.2s ease;
+}
+
+.campaign-item:last-child {
+    border-bottom: none;
+}
+
+.campaign-item:hover {
+    background: rgba(51,112,255,0.025);
+}
+
+.campaign-item-main {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.campaign-item-title {
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    line-height: 1.45;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+.campaign-item-meta {
+    margin-top: 7px;
+
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    color: #6f7685;
+
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   CAMPAIGN ACTIONS
+   ========================================================= */
+
+.campaign-item-actions {
+    flex: 0 0 auto;
+
+    min-width: 190px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 9px;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.status-badge {
+    min-height: 25px;
+
+    padding: 0 10px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 999px;
+
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 7px;
+
+    letter-spacing: 0.06em;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+}
+
+.status-badge.active {
+    border: 1px solid rgba(72,227,139,0.18);
+
+    background: rgba(72,227,139,0.06);
+
+    color: #48e38b;
+}
+
+.status-badge.inactive {
+    border: 1px solid rgba(255,255,255,0.08);
+
+    background: rgba(255,255,255,0.025);
+
+    color: #686f7d;
+}
+
+
+/* =========================================================
+   CAMPAIGN LINK
+   ========================================================= */
+
+.campaign-link {
+    min-width: 100px;
+
+    height: 34px;
+
+    padding: 0 12px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    border: 1px solid rgba(51,112,255,0.25);
+
+    border-radius: 8px;
+
+    background: rgba(51,112,255,0.05);
+
+    color: #69b7ff;
+
+    font-size: 8px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.campaign-link:hover {
+    background: rgba(51,112,255,0.12);
+
+    border-color: rgba(51,112,255,0.45);
+}
+
+.campaign-link.disabled {
+    color: #626977;
+
+    border-color: rgba(255,255,255,0.07);
+
+    background: rgba(255,255,255,0.015);
+
+    cursor: default;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.empty-state {
+    width: 100%;
+
+    min-height: 220px;
+
+    padding: 50px 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.empty-icon {
+    width: 44px;
+    height: 44px;
+
+    margin-bottom: 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 11px;
+
+    background: rgba(255,255,255,0.025);
+
+    color: #5e6573;
+
+    font-size: 14px;
+}
+
+.empty-state strong {
+    color: #ffffff;
+
+    font-size: 10px;
+
+    font-weight: 600;
+}
+
+.empty-state span {
+    margin-top: 4px;
+
+    color: #606775;
+
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 7px;
+}
+
+
+/* =========================================================
+   EDUCATIONAL NOTICE
+   ========================================================= */
+
+.dashboard-notice {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 18px 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    border: 1px solid rgba(51,112,255,0.13);
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(51,112,255,0.035),
+            rgba(255,255,255,0.012)
+        );
+}
+
+.notice-icon {
+    width: 36px;
+    height: 36px;
+
+    flex: 0 0 36px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: rgba(51,112,255,0.08);
+
+    color: #69b7ff;
+
+    font-size: 13px;
+}
+
+.dashboard-notice strong {
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 10px;
+
+    font-weight: 600;
+}
+
+.dashboard-notice p {
+    margin-top: 3px;
+
+    color: #656c7a;
+
+    font-size: 8px;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   HIDDEN UTILITY
+   ========================================================= */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .dashboard-content {
+        width: calc(100% - 48px);
+    }
+
+    .campaign-item {
+        gap: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   900px
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .dashboard-content {
+        width: calc(100% - 36px);
+
+        padding-top: 30px;
+    }
+
+    .welcome-row {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    .create-button {
+        width: 100%;
+    }
+
+    .form-grid.two-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .campaign-item {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .campaign-item-actions {
+        width: 100%;
+
+        min-width: 0;
+
+        justify-content: flex-start;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .dashboard-content {
+        width: calc(100% - 22px);
+
+        padding-top: 24px;
+        padding-bottom: 45px;
+    }
+
+    .welcome-row h2 {
+        font-size: 25px;
+    }
+
+    .welcome-row p {
+        font-size: 10px;
+    }
+
+    .panel-header {
+        min-height: 68px;
+
+        padding: 18px;
+    }
+
+    .panel-header h3 {
+        font-size: 15px;
+    }
+
+    .campaign-builder form {
+        padding: 18px;
+    }
+
+    .generator-section {
+        padding: 16px;
+    }
+
+    .generator-heading {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    .campaign-item {
+        padding: 18px;
+    }
+
+    .campaign-item-title {
+        white-space: normal;
+    }
+
+    .campaign-item-actions {
+        align-items: stretch;
+
+        flex-direction: column;
+    }
+
+    .campaign-link {
+        width: 100%;
+    }
+
+    .generated-link-box {
+        align-items: stretch;
+
+        flex-direction: column;
+    }
+
+    #generatedLink {
+        width: 100%;
+    }
+
+    .copy-button {
+        width: 100%;
+    }
+
+    .link-result {
+        padding: 20px;
+    }
+
+    .dashboard-notice {
+        align-items: flex-start;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .dashboard-content {
+        width: calc(100% - 16px);
+    }
+
+    .panel-header,
+    .campaign-builder form {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .generator-section {
+        padding: 14px;
+    }
+
+}
+/* =========================================================
+   EXISTING SIMULATIONS — PROFESSIONAL CARD LAYOUT
+   ========================================================= */
+
+.campaigns-panel {
+    margin-top: 28px;
+    width: 100%;
+}
+
+
+/* Header */
+
+.campaigns-panel .panel-header {
+    min-height: 82px;
+    padding: 22px 28px;
+}
+
+
+/* Campaign list */
+
+.campaign-list {
+    width: 100%;
+
+    padding: 22px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 16px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.008),
+            rgba(255,255,255,0)
+        );
+}
+
+
+/* =========================================================
+   INDIVIDUAL CAMPAIGN CARD
+   ========================================================= */
+
+.campaign-item {
+    position: relative;
+
+    width: 100%;
+    min-height: 150px;
+
+    padding: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    gap: 18px;
+
+    border: 1px solid rgba(255,255,255,0.075);
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.035),
+            rgba(255,255,255,0.012)
+        );
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,0.008),
+        0 12px 35px rgba(0,0,0,0.16);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* Blue accent line */
+
+.campaign-item::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 18px;
+    right: 18px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(51,112,255,0.45),
+            transparent
+        );
+
+    opacity: 0.7;
+}
+
+
+.campaign-item:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba(51,112,255,0.22);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(51,112,255,0.045),
+            rgba(255,255,255,0.015)
+        );
+
+    box-shadow:
+        0 18px 42px rgba(0,0,0,0.22);
+}
+
+
+/* =========================================================
+   CAMPAIGN CONTENT
+   ========================================================= */
+
+.campaign-item-main {
+    width: 100%;
+
+    min-width: 0;
+}
+
+
+/* Title */
+
+.campaign-item-title {
+    display: block;
+
+    width: 100%;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    line-height: 1.45;
+
+    letter-spacing: -0.015em;
+
+    white-space: normal;
+
+    overflow: visible;
+
+    text-overflow: unset;
+}
+
+
+/* Metadata */
+
+.campaign-item-meta {
+    margin-top: 9px;
+
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    color: #777f8e;
+
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 8px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   PLATFORM BADGE
+   ========================================================= */
+
+.campaign-platform {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 5px 8px;
+
+    border: 1px solid rgba(255,255,255,0.07);
+
+    border-radius: 6px;
+
+    background: rgba(255,255,255,0.025);
+
+    color: #aeb5c2;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   CAMPAIGN ACTION AREA
+   ========================================================= */
+
+.campaign-item-actions {
+    width: 100%;
+
+    min-width: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding-top: 14px;
+
+    border-top: 1px solid rgba(255,255,255,0.055);
+}
+
+
+/* =========================================================
+   STATUS BADGE
+   ========================================================= */
+
+.status-badge {
+    min-height: 25px;
+
+    padding: 0 9px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    border-radius: 999px;
+
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 7px;
+
+    letter-spacing: 0.06em;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+}
+
+
+.status-badge.active {
+    border: 1px solid rgba(72,227,139,0.18);
+
+    background: rgba(72,227,139,0.055);
+
+    color: #48e38b;
+}
+
+
+.status-badge.active::before {
+    content: "";
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #48e38b;
+
+    box-shadow:
+        0 0 8px rgba(72,227,139,0.55);
+}
+
+
+.status-badge.inactive {
+    border: 1px solid rgba(255,255,255,0.08);
+
+    background: rgba(255,255,255,0.025);
+
+    color: #686f7d;
+}
+
+
+/* =========================================================
+   LINK BUTTON
+   ========================================================= */
+
+.campaign-link {
+    min-width: 96px;
+
+    height: 32px;
+
+    padding: 0 11px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    border: 1px solid rgba(51,112,255,0.24);
+
+    border-radius: 7px;
+
+    background: rgba(51,112,255,0.045);
+
+    color: #69b7ff;
+
+    font-size: 8px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.campaign-link:hover {
+    transform: translateY(-1px);
+
+    background: rgba(51,112,255,0.12);
+
+    border-color: rgba(51,112,255,0.42);
+}
+
+
+.campaign-link.disabled {
+    color: #626977;
+
+    border-color: rgba(255,255,255,0.065);
+
+    background: rgba(255,255,255,0.015);
+
+    cursor: default;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.campaign-list .empty-state {
+    grid-column: 1 / -1;
+
+    min-height: 260px;
+
+    padding: 50px 20px;
+}
+
+
+/* =========================================================
+   CAMPAIGN COUNT
+   ========================================================= */
+
+.panel-count {
+    min-width: 92px;
+
+    height: 28px;
+
+    padding: 0 11px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,0.075);
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.025);
+
+    color: #8d95a4;
+
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 7px;
+
+    letter-spacing: 0.06em;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+    .campaign-list {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .campaigns-panel .panel-header {
+        padding: 18px;
+    }
+
+    .campaign-list {
+        padding: 14px;
+
+        gap: 12px;
+    }
+
+    .campaign-item {
+        min-height: 145px;
+
+        padding: 17px;
+    }
+
+    .campaign-item-actions {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 9px;
+    }
+
+    .campaign-link {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .campaign-list {
+        padding: 10px;
+    }
+
+    .campaign-item {
+        padding: 15px;
+    }
+
+}
+/* =========================================================
+   PHISHGUARD — EXISTING SIMULATIONS
+   PREMIUM CAMPAIGN LIBRARY
+   ========================================================= */
+
+.campaigns-panel {
+    margin-top: 42px;
+
+    width: 100%;
+
+    background: transparent;
+
+    border: none;
+
+    box-shadow: none;
+
+    overflow: visible;
+}
+
+
+/* =========================================================
+   SECTION HEADER
+   ========================================================= */
+
+.campaigns-panel > .panel-header {
+    min-height: auto;
+
+    padding: 0 2px 22px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    border: none;
+
+    background: transparent;
+}
+
+.campaigns-panel > .panel-header h3 {
+    margin-top: 6px;
+
+    font-size: 21px;
+
+    font-weight: 600;
+
+    letter-spacing: -0.035em;
+}
+
+.campaigns-panel > .panel-header .section-label {
+    font-size: 7px;
+}
+
+.panel-count {
+    height: 30px;
+
+    padding: 0 13px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.025);
+
+    color: #8b93a2;
+
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 7px;
+
+    letter-spacing: 0.08em;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   CAMPAIGN LIBRARY CONTAINER
+   ========================================================= */
+
+.campaign-list {
+    width: 100%;
+
+    padding: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+
+    background: transparent;
+}
+
+
+/* =========================================================
+   INDIVIDUAL SIMULATION CARD
+   ========================================================= */
+
+.campaign-item {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 245px;
+
+    padding: 22px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,0.075);
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18,22,32,0.96),
+            rgba(10,13,20,0.96)
+        );
+
+    box-shadow:
+        0 16px 45px rgba(0,0,0,0.18);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+
+/* subtle blue glow */
+
+.campaign-item::after {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    top: -85px;
+    right: -75px;
+
+    border-radius: 50%;
+
+    background: rgba(51,112,255,0.12);
+
+    filter: blur(35px);
+
+    opacity: 0;
+
+    transition: opacity 0.3s ease;
+
+    pointer-events: none;
+}
+
+
+.campaign-item:hover {
+    transform: translateY(-5px);
+
+    border-color:
+        rgba(51,112,255,0.28);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(19,24,37,0.98),
+            rgba(10,13,20,0.98)
+        );
+
+    box-shadow:
+        0 24px 55px rgba(0,0,0,0.28),
+        0 0 35px rgba(51,112,255,0.05);
+}
+
+
+.campaign-item:hover::after {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   TOP OF CARD
+   ========================================================= */
+
+.campaign-card-top {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 12px;
+}
+
+
+/* =========================================================
+   PLATFORM ICON
+   ========================================================= */
+
+.campaign-platform-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(51,112,255,0.18);
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(51,112,255,0.12),
+            rgba(51,112,255,0.035)
+        );
+
+    color: #69b7ff;
+
+    font-size: 15px;
+
+    box-shadow:
+        inset 0 0 20px rgba(51,112,255,0.025);
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.status-badge {
+    min-height: 25px;
+
+    padding: 0 9px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    border-radius: 999px;
+
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 6px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+}
+
+
+.status-badge.active {
+    color: #48e38b;
+
+    background:
+        rgba(72,227,139,0.055);
+
+    border: 1px solid rgba(72,227,139,0.17);
+}
+
+
+.status-badge.active::before {
+    content: "";
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #48e38b;
+
+    box-shadow:
+        0 0 9px rgba(72,227,139,0.6);
+}
+
+
+.status-badge.inactive {
+    color: #707786;
+
+    background:
+        rgba(255,255,255,0.025);
+
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+
+/* =========================================================
+   CAMPAIGN INFORMATION
+   ========================================================= */
+
+.campaign-item-main {
+    width: 100%;
+
+    min-width: 0;
+}
+
+
+.campaign-item-title {
+    display: block;
+
+    width: 100%;
+
+    margin-top: 17px;
+
+    color: #f5f7fb;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    line-height: 1.4;
+
+    letter-spacing: -0.025em;
+
+    white-space: normal;
+
+    overflow: visible;
+}
+
+
+.campaign-item-meta {
+    margin-top: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    color: #707887;
+
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 7px;
+
+    line-height: 1.6;
+}
+
+
+.campaign-item-meta span {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+
+/* =========================================================
+   META BADGE
+   ========================================================= */
+
+.campaign-item-meta .platform {
+    padding: 5px 8px;
+
+    border: 1px solid rgba(255,255,255,0.065);
+
+    border-radius: 6px;
+
+    background: rgba(255,255,255,0.025);
+
+    color: #9aa2b0;
+}
+
+
+/* =========================================================
+   BOTTOM AREA
+   ========================================================= */
+
+.campaign-item-actions {
+    width: 100%;
+
+    min-width: 0;
+
+    padding-top: 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    border-top: 1px solid rgba(255,255,255,0.055);
+}
+
+
+/* =========================================================
+   VIEW SIMULATION BUTTON
+   ========================================================= */
+
+.campaign-link {
+    min-width: 112px;
+
+    height: 34px;
+
+    padding: 0 12px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    border: 1px solid rgba(51,112,255,0.25);
+
+    border-radius: 8px;
+
+    background:
+        rgba(51,112,255,0.055);
+
+    color: #69b7ff;
+
+    font-size: 8px;
+
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.campaign-link:hover {
+    transform: translateY(-1px);
+
+    background:
+        rgba(51,112,255,0.13);
+
+    border-color:
+        rgba(51,112,255,0.48);
+
+    color: #ffffff;
+}
+
+
+.campaign-link.disabled {
+    color: #626a78;
+
+    background:
+        rgba(255,255,255,0.018);
+
+    border-color:
+        rgba(255,255,255,0.065);
+
+    cursor: default;
+}
+
+
+/* =========================================================
+   DATE / SECONDARY INFO
+   ========================================================= */
+
+.campaign-date {
+    color: #505765;
+
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 6px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.campaign-list .empty-state {
+    grid-column: 1 / -1;
+
+    min-height: 250px;
+
+    padding: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    border: 1px solid rgba(255,255,255,0.07);
+
+    border-radius: 15px;
+
+    background:
+        rgba(255,255,255,0.015);
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   LARGE TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    .campaign-list {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+    .campaigns-panel > .panel-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    .campaign-list {
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+    }
+
+    .campaign-item {
+        min-height: 220px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 500px) {
+
+    .campaigns-panel {
+        margin-top: 32px;
+    }
+
+    .campaigns-panel > .panel-header {
+        padding-bottom: 17px;
+    }
+
+    .campaigns-panel > .panel-header h3 {
+        font-size: 18px;
+    }
+
+    .campaign-list {
+        gap: 12px;
+    }
+
+    .campaign-item {
+        min-height: 215px;
+
+        padding: 18px;
+    }
+
+    .campaign-item-title {
+        font-size: 13px;
+    }
+
+    .campaign-item-actions {
+        align-items: stretch;
+
+        flex-direction: column;
+    }
+
+    .campaign-link {
+        width: 100%;
+    }
+
+}
+
+/* =========================================================
+   PHISHGUARD — CLEAN BOXED CAMPAIGN LAYOUT
+   ========================================================= */
+
+/* Main campaign area */
+.campaigns-panel {
+    width: 100%;
+    margin-top: 42px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    overflow: visible;
+}
+
+
+/* =========================================================
+   EXISTING SIMULATIONS HEADER BOX
+   ========================================================= */
+
+.campaigns-panel > .panel-header {
+    width: 100%;
+    min-height: 88px;
+
+    padding: 22px 26px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.045),
+            rgba(255,255,255,0.018)
+        );
+
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 14px 14px 0 0;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.16);
+}
+
+.campaigns-panel > .panel-header h3 {
+    margin-top: 6px;
+
+    color: #ffffff;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    letter-spacing: -0.03em;
+}
+
+
+/* =========================================================
+   CAMPAIGN COUNT BOX
+   ========================================================= */
+
+.panel-count {
+    min-width: 105px;
+    height: 32px;
+
+    padding: 0 13px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(51,112,255,0.22);
+    border-radius: 8px;
+
+    background:
+        rgba(51,112,255,0.055);
+
+    color: #72baff;
+
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 7px;
+
+    letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   CAMPAIGN GRID OUTER BOX
+   ========================================================= */
+
+.campaign-list {
+    width: 100%;
+
+    padding: 24px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+
+    background:
+        rgba(8,11,17,0.92);
+
+    border-left: 1px solid rgba(255,255,255,0.09);
+    border-right: 1px solid rgba(255,255,255,0.09);
+    border-bottom: 1px solid rgba(255,255,255,0.09);
+
+    border-radius: 0 0 14px 14px;
+}
+
+
+/* =========================================================
+   INDIVIDUAL CAMPAIGN BOX
+   ========================================================= */
+
+.campaign-item {
+    position: relative;
+
+    width: 100%;
+    min-height: 250px;
+
+    padding: 21px;
+
+    display: flex;
+    flex-direction: column;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20,24,34,0.96),
+            rgba(12,15,23,0.96)
+        );
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 10px 28px rgba(0,0,0,0.18);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* top accent */
+
+.campaign-item::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(51,112,255,0.15),
+            rgba(51,112,255,0.75),
+            rgba(98,184,255,0.20)
+        );
+}
+
+
+/* hover */
+
+.campaign-item:hover {
+    transform: translateY(-4px);
+
+    border-color:
+        rgba(51,112,255,0.30);
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,0.28),
+        0 0 25px rgba(51,112,255,0.05);
+}
+
+
+/* =========================================================
+   CAMPAIGN CARD TOP
+   ========================================================= */
+
+.campaign-card-top {
+    width: 100%;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 12px;
+}
+
+
+/* =========================================================
+   ICON BOX
+   ========================================================= */
+
+.campaign-platform-icon {
+    width: 46px;
+    height: 46px;
+
+    flex: 0 0 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(51,112,255,0.20);
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(51,112,255,0.13),
+            rgba(51,112,255,0.035)
+        );
+
+    color: #69b7ff;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   CAMPAIGN MAIN INFORMATION BOX
+   ========================================================= */
+
+.campaign-item-main {
+    width: 100%;
+
+    min-width: 0;
+
+    margin-top: 18px;
+
+    padding: 15px;
+
+    background:
+        rgba(0,0,0,0.16);
+
+    border: 1px solid rgba(255,255,255,0.055);
+
+    border-radius: 9px;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.campaign-item-title {
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    line-height: 1.45;
+
+    letter-spacing: -0.02em;
+
+    white-space: normal;
+}
+
+
+/* =========================================================
+   META INFORMATION
+   ========================================================= */
+
+.campaign-item-meta {
+    margin-top: 11px;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    color: #727a89;
+
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 7px;
+
+    line-height: 1.5;
+}
+
+
+/* Platform mini box */
+
+.campaign-item-meta .platform {
+    padding: 5px 8px;
+
+    display: inline-flex;
+    align-items: center;
+
+    border: 1px solid rgba(255,255,255,0.065);
+
+    border-radius: 6px;
+
+    background:
+        rgba(255,255,255,0.025);
+
+    color: #aab1bf;
+}
+
+
+/* =========================================================
+   BOTTOM ACTION BOX
+   ========================================================= */
+
+.campaign-item-actions {
+    width: 100%;
+
+    margin-top: auto;
+    padding-top: 16px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+
+/* =========================================================
+   STATUS BOX
+   ========================================================= */
+
+.status-badge {
+    min-height: 27px;
+
+    padding: 0 10px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    border-radius: 7px;
+
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 6px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+}
+
+
+.status-badge.active {
+    color: #48e38b;
+
+    background:
+        rgba(72,227,139,0.055);
+
+    border: 1px solid rgba(72,227,139,0.18);
+}
+
+
+.status-badge.active::before {
+    content: "";
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #48e38b;
+
+    box-shadow:
+        0 0 8px rgba(72,227,139,0.55);
+}
+
+
+.status-badge.inactive {
+    color: #737a87;
+
+    background:
+        rgba(255,255,255,0.025);
+
+    border: 1px solid rgba(255,255,255,0.07);
+}
+
+
+/* =========================================================
+   VIEW BUTTON BOX
+   ========================================================= */
+
+.campaign-link {
+    height: 34px;
+
+    min-width: 108px;
+
+    padding: 0 12px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border: 1px solid rgba(51,112,255,0.28);
+
+    border-radius: 8px;
+
+    background:
+        rgba(51,112,255,0.06);
+
+    color: #69b7ff;
+
+    font-size: 8px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.campaign-link:hover {
+    transform: translateY(-1px);
+
+    background:
+        rgba(51,112,255,0.14);
+
+    border-color:
+        rgba(51,112,255,0.48);
+
+    color: #ffffff;
+}
+
+
+.campaign-link.disabled {
+    color: #626a77;
+
+    background:
+        rgba(255,255,255,0.018);
+
+    border-color:
+        rgba(255,255,255,0.07);
+
+    cursor: default;
+}
+
+
+/* =========================================================
+   EMPTY CAMPAIGN BOX
+   ========================================================= */
+
+.campaign-list .empty-state {
+    grid-column: 1 / -1;
+
+    min-height: 250px;
+
+    padding: 50px 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px dashed rgba(255,255,255,0.10);
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,0.012);
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    .campaign-list {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 760px) {
+
+    .campaigns-panel > .panel-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .campaign-list {
+        grid-template-columns: 1fr;
+
+        padding: 16px;
+    }
+
+    .campaign-item {
+        min-height: 225px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .campaign-list {
+        padding: 11px;
+
+        gap: 11px;
+    }
+
+    .campaign-item {
+        min-height: 220px;
+
+        padding: 17px;
+    }
+
+    .campaign-item-actions {
+        align-items: stretch;
+
+        flex-direction: column;
+    }
+
+    .campaign-link {
+        width: 100%;
+    }
+
+}

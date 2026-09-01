@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>PhishGuard Simulation</title>
+
+
+    <!-- =====================================================
+         GOOGLE FONTS
+         ===================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         FONT AWESOME
+         ===================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- =====================================================
+         SIMULATION CSS
+         ===================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/simulation.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         BACKGROUND
+         ===================================================== -->
+
+    <div class="simulation-background"></div>
+
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="simulation-header">
+
+        <div class="simulation-brand">
+
+            <img
+                src="assets/images/um-logo.png"
+                alt="University of Mindanao"
+            >
+
+            <div>
+
+                <strong>
+                    PHISHGUARD
+                </strong>
+
+                <span>
+                    SIMULATION ENVIRONMENT
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="simulation-indicator">
+
+            <span></span>
+
+            SIMULATION
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="simulation-page">
+
+
+        <!-- =================================================
+             LOADING STATE
+             ================================================= -->
+
+        <div
+            id="loadingState"
+            class="loading-state"
+        >
+
+            <div class="loading-spinner"></div>
+
+            <span>
+                Loading simulation...
+            </span>
+
+        </div>
+
+
+        <!-- =================================================
+             SIMULATION
+             ================================================= -->
+
+        <section
+            id="simulationContainer"
+            class="simulation-container hidden"
+        >
+
+
+            <!-- =============================================
+                 SCENARIO LABEL
+                 ============================================= -->
+
+            <div class="scenario-label">
+
+                <span></span>
+
+                <span id="scenarioPlatform">
+                    SOCIAL MEDIA
+                </span>
+
+                SIMULATION
+
+            </div>
+
+
+            <!-- =============================================
+                 PHISHING CARD
+                 ============================================= -->
+
+            <div
+                id="phishingCard"
+                class="phishing-card"
+            >
+
+                <!--
+                    Campaign content is generated
+                    dynamically by simulation.js.
+                -->
+
+            </div>
+
+
+            <!-- =============================================
+                 DISCLAIMER
+                 ============================================= -->
+
+            <div class="simulation-disclaimer">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <span>
+                    Educational cybersecurity awareness simulation.
+                </span>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             ERROR STATE
+             ================================================= -->
+
+        <section
+            id="errorState"
+            class="error-state hidden"
+        >
+
+            <div class="error-icon">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+            </div>
+
+
+            <h1>
+                Simulation unavailable
+            </h1>
+
+
+            <p>
+                This campaign link is invalid, inactive,
+                or no longer available.
+            </p>
+
+
+            <a href="index.html">
+
+                Return to PhishGuard
+
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         SUPABASE
+         ===================================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+
+    <!-- =====================================================
+         PHISHGUARD SUPABASE CONFIG
+         ===================================================== -->
+
+    <script src="js/supabase.js"></script>
+
+
+    <!-- =====================================================
+         SIMULATION LOGIC
+         ===================================================== -->
+
+    <script src="js/simulation.js"></script>
+
+
+</body>
+
+</html>

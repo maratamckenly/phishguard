@@ -1,0 +1,2623 @@
+/* =========================================================
+   PHISHGUARD
+   PUBLIC SIMULATION ENVIRONMENT
+   CLEAN / MODERN / RESPONSIVE
+   ========================================================= */
+
+
+/* =========================================================
+   ROOT
+   ========================================================= */
+
+:root {
+    --bg: #05070d;
+    --bg-soft: #080b12;
+    --card: #0d1119;
+    --card-2: #111621;
+
+    --blue: #3b82f6;
+    --blue-light: #60a5fa;
+    --blue-dark: #2563eb;
+
+    --green: #22c55e;
+    --yellow: #fbbf24;
+    --red: #ef4444;
+
+    --text: #f7f8fb;
+    --text-soft: #a8afbd;
+    --text-muted: #687181;
+
+    --border: rgba(255,255,255,0.09);
+    --border-soft: rgba(255,255,255,0.055);
+
+    --shadow:
+        0 30px 90px rgba(0,0,0,0.48);
+
+    --radius-xl: 24px;
+    --radius-lg: 18px;
+    --radius-md: 13px;
+    --radius-sm: 10px;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(59,130,246,0.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(30,41,59,0.10),
+            transparent 40%
+        ),
+        var(--bg);
+
+    color: var(--text);
+
+    font-family:
+        "Poppins",
+        Arial,
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+button,
+a {
+    font-family: inherit;
+}
+
+button {
+    border: 0;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
+
+.simulation-background {
+    position: fixed;
+    inset: 0;
+
+    z-index: -5;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(59,130,246,0.055),
+            transparent 38%
+        );
+}
+
+.simulation-background::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 48px 48px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black 0%,
+            black 55%,
+            transparent 100%
+        );
+}
+
+.simulation-background::after {
+    content: "";
+
+    position: absolute;
+
+    width: 650px;
+    height: 650px;
+
+    top: -420px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background: rgba(37,99,235,0.13);
+
+    filter: blur(100px);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.simulation-header {
+    width: min(
+        calc(100% - 40px),
+        1180px
+    );
+
+    min-height: 82px;
+
+    margin: 20px auto 0;
+
+    padding: 14px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    background:
+        rgba(9,12,20,0.82);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    box-shadow:
+        0 18px 50px rgba(0,0,0,0.22);
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.simulation-brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    min-width: 0;
+}
+
+.simulation-brand img {
+    width: 50px;
+    height: 50px;
+
+    object-fit: contain;
+
+    flex-shrink: 0;
+
+    filter:
+        drop-shadow(
+            0 0 20px rgba(59,130,246,0.16)
+        );
+}
+
+.simulation-brand > div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.simulation-brand strong {
+    color: #ffffff;
+
+    font-size: 16px;
+
+    line-height: 1;
+
+    font-weight: 700;
+
+    letter-spacing: 0.015em;
+}
+
+.simulation-brand span {
+    color: #687181;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 0.15em;
+}
+
+
+/* =========================================================
+   SIMULATION INDICATOR
+   ========================================================= */
+
+.simulation-indicator {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 9px 14px;
+
+    border:
+        1px solid rgba(251,191,36,0.22);
+
+    border-radius: 999px;
+
+    background:
+        rgba(251,191,36,0.045);
+
+    color: #cfd4dd;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.09em;
+
+    white-space: nowrap;
+}
+
+.simulation-indicator span {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--yellow);
+
+    box-shadow:
+        0 0 12px rgba(251,191,36,0.65);
+
+    animation:
+        simulationPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes simulationPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.45;
+        transform: scale(0.8);
+    }
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.simulation-page {
+    width: 100%;
+
+    min-height:
+        calc(100vh - 120px);
+
+    padding:
+        68px 20px 70px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.loading-state {
+    width: min(100%, 520px);
+
+    min-height: 320px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 17px;
+
+    color: var(--text-muted);
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 0.06em;
+}
+
+.loading-spinner {
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+
+    border:
+        2px solid rgba(255,255,255,0.08);
+
+    border-top-color:
+        var(--blue);
+
+    animation:
+        loadingSpin 0.75s linear infinite;
+}
+
+@keyframes loadingSpin {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   SIMULATION CONTAINER
+   ========================================================= */
+
+.simulation-container {
+    width: min(
+        100%,
+        760px
+    );
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 16px;
+
+    animation:
+        pageAppear 0.45s ease both;
+}
+
+@keyframes pageAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   SCENARIO LABEL
+   ========================================================= */
+
+.scenario-label {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    color: #5f6878;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.13em;
+
+    text-transform: uppercase;
+}
+
+.scenario-label > span:first-child {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: var(--blue);
+
+    box-shadow:
+        0 0 11px rgba(59,130,246,0.8);
+}
+
+#scenarioPlatform {
+    color: #7b879a;
+}
+
+
+/* =========================================================
+   MAIN PHISHING CARD
+   ========================================================= */
+
+.phishing-card {
+    width: 100%;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(16,20,29,0.98),
+            rgba(10,13,20,0.98)
+        );
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-xl);
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+/* =========================================================
+   PHISHING CARD HEADER
+   ========================================================= */
+
+.phishing-card-header {
+    min-height: 78px;
+
+    padding: 17px 21px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 16px;
+
+    border-bottom:
+        1px solid var(--border-soft);
+
+    background:
+        rgba(255,255,255,0.012);
+}
+
+.phishing-profile {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    min-width: 0;
+}
+
+.profile-avatar {
+    width: 43px;
+    height: 43px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        rgba(59,130,246,0.10);
+
+    border:
+        1px solid rgba(59,130,246,0.18);
+
+    color: #69a2ff;
+
+    font-size: 17px;
+}
+
+.profile-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+    min-width: 0;
+}
+
+.profile-info strong {
+    color: #eef1f6;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.profile-info span {
+    color: #697384;
+
+    font-size: 9px;
+}
+
+.notification-icon {
+    width: 35px;
+    height: 35px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    border:
+        1px solid var(--border-soft);
+
+    color: #737e91;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   PHISHING CONTENT
+   ========================================================= */
+
+.phishing-card-content {
+    padding:
+        27px 24px 21px;
+}
+
+
+/* =========================================================
+   ALERT
+   ========================================================= */
+
+.phishing-alert {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 15px;
+
+    padding: 7px 10px;
+
+    border-radius: 7px;
+
+    background:
+        rgba(251,191,36,0.055);
+
+    border:
+        1px solid rgba(251,191,36,0.13);
+
+    color: #b99b52;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size: 7px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.09em;
+}
+
+.phishing-alert i {
+    color: var(--yellow);
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   HEADLINE
+   ========================================================= */
+
+.phishing-headline {
+    margin-bottom: 13px;
+
+    color: #f6f7fa;
+
+    font-size:
+        clamp(
+            24px,
+            4vw,
+            34px
+        );
+
+    line-height: 1.2;
+
+    font-weight: 700;
+
+    letter-spacing: -0.035em;
+}
+
+
+/* =========================================================
+   MESSAGE
+   ========================================================= */
+
+.phishing-message {
+    max-width: 670px;
+
+    margin-bottom: 23px;
+
+    color: #aab1be;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.phishing-cta {
+    width: 100%;
+
+    min-height: 50px;
+
+    padding: 13px 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #3b82f6,
+            #2563eb
+        );
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 30px rgba(37,99,235,0.22);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+.phishing-cta:hover {
+    transform: translateY(-2px);
+
+    filter: brightness(1.06);
+
+    box-shadow:
+        0 17px 38px rgba(37,99,235,0.32);
+}
+
+.phishing-cta:active {
+    transform: translateY(0);
+}
+
+.phishing-cta:disabled {
+    cursor: wait;
+
+    opacity: 0.72;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+.phishing-cta i {
+    font-size: 10px;
+
+    transition:
+        transform 0.2s ease;
+}
+
+.phishing-cta:hover i {
+    transform:
+        translateX(3px);
+}
+
+
+/* =========================================================
+   PHISHING META
+   ========================================================= */
+
+.phishing-meta {
+    margin-top: 18px;
+
+    padding-top: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    border-top:
+        1px solid var(--border-soft);
+}
+
+.phishing-meta span {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #5d6675;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size: 7px;
+
+    letter-spacing: 0.025em;
+}
+
+.phishing-meta i {
+    color: #727d90;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   AWARENESS RESULT
+   ========================================================= */
+
+.awareness-result {
+    padding:
+        31px 27px 27px;
+
+    animation:
+        awarenessAppear 0.4s ease both;
+}
+
+@keyframes awarenessAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   AWARENESS ICON
+   ========================================================= */
+
+.awareness-icon {
+    width: 58px;
+    height: 58px;
+
+    margin-bottom: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background:
+        rgba(34,197,94,0.08);
+
+    border:
+        1px solid rgba(34,197,94,0.18);
+
+    color: var(--green);
+
+    font-size: 22px;
+
+    box-shadow:
+        0 0 30px rgba(34,197,94,0.06);
+}
+
+
+/* =========================================================
+   AWARENESS BADGE
+   ========================================================= */
+
+.awareness-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 7px 10px;
+
+    margin-bottom: 14px;
+
+    border-radius: 7px;
+
+    background:
+        rgba(59,130,246,0.07);
+
+    border:
+        1px solid rgba(59,130,246,0.15);
+
+    color: #6ea1ef;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size: 7px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   AWARENESS TITLE
+   ========================================================= */
+
+.awareness-result h1 {
+    margin-bottom: 13px;
+
+    color: #f6f7fa;
+
+    font-size:
+        clamp(
+            25px,
+            4vw,
+            35px
+        );
+
+    line-height: 1.2;
+
+    font-weight: 700;
+
+    letter-spacing: -0.035em;
+}
+
+.awareness-intro {
+    max-width: 650px;
+
+    margin-bottom: 22px;
+
+    color: #aab1bd;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   TACTIC
+   ========================================================= */
+
+.awareness-tactic {
+    margin-bottom: 18px;
+
+    padding: 14px 16px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    border-radius: 11px;
+
+    background:
+        rgba(59,130,246,0.045);
+
+    border:
+        1px solid rgba(59,130,246,0.12);
+}
+
+.awareness-tactic span {
+    color: #65748a;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size: 7px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.1em;
+}
+
+.awareness-tactic strong {
+    color: #dbe7fa;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   WARNING BOX
+   ========================================================= */
+
+.awareness-warning-box {
+    padding: 18px;
+
+    margin-bottom: 18px;
+
+    border-radius: 13px;
+
+    background:
+        rgba(251,191,36,0.035);
+
+    border:
+        1px solid rgba(251,191,36,0.11);
+}
+
+.warning-heading {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 13px;
+
+    color: #d4b45f;
+
+    font-size: 10px;
+
+    font-weight: 600;
+}
+
+.warning-heading i {
+    color: var(--yellow);
+
+    font-size: 11px;
+}
+
+.awareness-warning-box ul {
+    list-style: none;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+.awareness-warning-box li {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 9px;
+
+    color: #9fa7b5;
+
+    font-size: 11px;
+
+    line-height: 1.55;
+}
+
+.awareness-warning-box li::before {
+    content: "";
+
+    width: 5px;
+    height: 5px;
+
+    margin-top: 6px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: var(--yellow);
+
+    box-shadow:
+        0 0 7px rgba(251,191,36,0.35);
+}
+
+
+/* =========================================================
+   SAFETY TIPS
+   ========================================================= */
+
+.awareness-tips {
+    margin-bottom: 21px;
+
+    padding: 18px;
+
+    border-radius: 13px;
+
+    background:
+        rgba(34,197,94,0.035);
+
+    border:
+        1px solid rgba(34,197,94,0.10);
+}
+
+.tips-heading {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 13px;
+
+    color: #8ecfa7;
+
+    font-size: 10px;
+
+    font-weight: 600;
+}
+
+.tips-heading i {
+    color: var(--green);
+
+    font-size: 11px;
+}
+
+.tip {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 9px;
+
+    margin-top: 9px;
+
+    color: #99a3b1;
+
+    font-size: 10px;
+
+    line-height: 1.6;
+}
+
+.tip > i {
+    width: 16px;
+    height: 16px;
+
+    margin-top: 1px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(34,197,94,0.09);
+
+    color: var(--green);
+
+    font-size: 7px;
+}
+
+
+/* =========================================================
+   RETURN BUTTON
+   ========================================================= */
+
+.awareness-return {
+    width: 100%;
+
+    min-height: 46px;
+
+    padding: 12px 17px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    border:
+        1px solid var(--border);
+
+    color: #aeb7c6;
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.awareness-return:hover {
+    background:
+        rgba(59,130,246,0.07);
+
+    border-color:
+        rgba(59,130,246,0.22);
+
+    color: #dbe8ff;
+
+    transform:
+        translateY(-1px);
+}
+
+.awareness-return i {
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   DISCLAIMER
+   ========================================================= */
+
+.simulation-disclaimer {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    color: #4f5868;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size: 7px;
+
+    letter-spacing: 0.035em;
+
+    text-align: center;
+}
+
+.simulation-disclaimer i {
+    color: #3b82f6;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.error-state {
+    width: min(
+        100%,
+        600px
+    );
+
+    padding:
+        50px 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(17,21,30,0.98),
+            rgba(11,14,21,0.98)
+        );
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-xl);
+
+    box-shadow:
+        var(--shadow);
+
+    animation:
+        pageAppear 0.4s ease both;
+}
+
+.error-icon {
+    width: 58px;
+    height: 58px;
+
+    margin-bottom: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background:
+        rgba(251,191,36,0.08);
+
+    border:
+        1px solid rgba(251,191,36,0.15);
+
+    color: var(--yellow);
+
+    font-size: 21px;
+}
+
+.error-state h1 {
+    margin-bottom: 10px;
+
+    color: #f4f6f9;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    letter-spacing: -0.025em;
+}
+
+.error-state p {
+    max-width: 400px;
+
+    margin-bottom: 23px;
+
+    color: #7e8796;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+.error-state a {
+    min-height: 43px;
+
+    padding: 0 18px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background:
+        rgba(59,130,246,0.09);
+
+    border:
+        1px solid rgba(59,130,246,0.18);
+
+    color: #78a9ff;
+
+    font-size: 10px;
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.error-state a:hover {
+    background:
+        rgba(59,130,246,0.15);
+
+    color: #a9c7ff;
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .simulation-header {
+        width:
+            calc(100% - 20px);
+
+        min-height: 68px;
+
+        margin-top: 10px;
+
+        padding: 11px 13px;
+
+        border-radius: 14px;
+    }
+
+    .simulation-brand {
+        gap: 10px;
+    }
+
+    .simulation-brand img {
+        width: 39px;
+        height: 39px;
+    }
+
+    .simulation-brand strong {
+        font-size: 13px;
+    }
+
+    .simulation-brand span {
+        font-size: 6px;
+    }
+
+    .simulation-indicator {
+        padding: 7px 9px;
+
+        font-size: 7px;
+    }
+
+    .simulation-page {
+        padding:
+            45px 10px 40px;
+    }
+
+    .simulation-container {
+        width: 100%;
+    }
+
+    .scenario-label {
+        font-size: 7px;
+    }
+
+    .phishing-card {
+        border-radius: 18px;
+    }
+
+    .phishing-card-header {
+        min-height: 68px;
+
+        padding:
+            14px 15px;
+    }
+
+    .profile-avatar {
+        width: 38px;
+        height: 38px;
+
+        border-radius: 10px;
+
+        font-size: 15px;
+    }
+
+    .profile-info strong {
+        font-size: 12px;
+    }
+
+    .profile-info span {
+        font-size: 8px;
+    }
+
+    .notification-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .phishing-card-content {
+        padding:
+            22px 15px 17px;
+    }
+
+    .phishing-headline {
+        font-size: 25px;
+    }
+
+    .phishing-message {
+        font-size: 12px;
+
+        line-height: 1.75;
+    }
+
+    .phishing-meta {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .awareness-result {
+        padding:
+            24px 15px 20px;
+    }
+
+    .awareness-result h1 {
+        font-size: 25px;
+    }
+
+    .awareness-intro {
+        font-size: 12px;
+    }
+
+    .awareness-warning-box,
+    .awareness-tips {
+        padding: 15px;
+    }
+
+    .awareness-warning-box li {
+        font-size: 10px;
+    }
+
+    .tip {
+        font-size: 9px;
+    }
+
+    .simulation-disclaimer {
+        padding:
+            0 10px;
+
+        font-size: 6px;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .simulation-header {
+        gap: 8px;
+    }
+
+    .simulation-brand strong {
+        font-size: 12px;
+    }
+
+    .simulation-brand span {
+        font-size: 5px;
+    }
+
+    .simulation-indicator {
+        padding:
+            6px 8px;
+
+        font-size: 6px;
+    }
+
+    .phishing-headline {
+        font-size: 23px;
+    }
+
+    .phishing-cta {
+        min-height: 47px;
+
+        font-size: 11px;
+    }
+
+    .awareness-icon {
+        width: 52px;
+        height: 52px;
+
+        border-radius: 14px;
+    }
+
+    .error-state {
+        padding:
+            40px 20px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+/* =========================================================
+   SCENARIO MESSAGE CONTEXT
+   ========================================================= */
+
+.message-context {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+
+    margin-bottom: 18px;
+}
+
+.context-item {
+    min-width: 0;
+
+    padding: 12px 13px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    background:
+        rgba(255,255,255,0.025);
+
+    border:
+        1px solid rgba(255,255,255,0.065);
+
+    border-radius: 10px;
+}
+
+.context-item span {
+    color: #596375;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size: 7px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.10em;
+}
+
+.context-item strong {
+    color: #c8ced8;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    line-height: 1.4;
+
+    overflow-wrap: anywhere;
+}
+
+.context-item .status-warning {
+    color: #e3b75b;
+}
+
+
+/* =========================================================
+   SCENARIO VISUAL VARIANTS
+   ========================================================= */
+
+.phishing-alert.urgent {
+    background:
+        rgba(251,191,36,0.07);
+
+    border-color:
+        rgba(251,191,36,0.18);
+
+    color: #d4b45f;
+}
+
+
+.phishing-alert.danger {
+    background:
+        rgba(239,68,68,0.065);
+
+    border-color:
+        rgba(239,68,68,0.16);
+
+    color: #e18484;
+}
+
+.phishing-alert.danger i {
+    color:
+        #ef6a6a;
+}
+
+
+.phishing-alert.financial {
+    background:
+        rgba(59,130,246,0.065);
+
+    border-color:
+        rgba(59,130,246,0.16);
+
+    color: #80aef2;
+}
+
+.phishing-alert.financial i {
+    color:
+        #60a5fa;
+}
+
+
+.phishing-alert.reward {
+    background:
+        rgba(168,85,247,0.065);
+
+    border-color:
+        rgba(168,85,247,0.16);
+
+    color: #b794e8;
+}
+
+.phishing-alert.reward i {
+    color:
+        #a78bfa;
+}
+
+
+.phishing-alert.delivery {
+    background:
+        rgba(20,184,166,0.06);
+
+    border-color:
+        rgba(20,184,166,0.15);
+
+    color: #74bdb4;
+}
+
+.phishing-alert.delivery i {
+    color:
+        #2dd4bf;
+}
+
+
+/* =========================================================
+   PLATFORM AVATAR VARIANTS
+   ========================================================= */
+
+.profile-avatar.facebook {
+    background:
+        rgba(59,89,152,0.12);
+
+    border-color:
+        rgba(59,89,152,0.22);
+
+    color:
+        #7fa2e8;
+}
+
+
+.profile-avatar.instagram {
+    background:
+        rgba(214,70,132,0.09);
+
+    border-color:
+        rgba(214,70,132,0.18);
+
+    color:
+        #df8ab1;
+}
+
+
+.profile-avatar.tiktok {
+    background:
+        rgba(255,255,255,0.045);
+
+    border-color:
+        rgba(255,255,255,0.11);
+
+    color:
+        #e5e7eb;
+}
+
+
+.profile-avatar.twitter {
+    background:
+        rgba(255,255,255,0.045);
+
+    border-color:
+        rgba(255,255,255,0.10);
+
+    color:
+        #dce1e8;
+}
+
+
+/* =========================================================
+   MORE PLATFORM-LIKE MESSAGE STRUCTURE
+   ========================================================= */
+
+.phishing-card-content {
+    position: relative;
+}
+
+.phishing-card-content::after {
+    content: "";
+
+    display: block;
+
+    width: 100%;
+
+    height: 1px;
+
+    margin-top: 19px;
+
+    background:
+        rgba(255,255,255,0.025);
+}
+
+
+/* =========================================================
+   CTA DEPTH
+   ========================================================= */
+
+.phishing-cta {
+    position: relative;
+
+    overflow: hidden;
+}
+
+.phishing-cta::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.10),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition:
+        left 0.55s ease;
+}
+
+.phishing-cta:hover::before {
+    left: 150%;
+}
+
+
+/* =========================================================
+   AWARENESS RESULT - CLEANER SEPARATION
+   ========================================================= */
+
+.awareness-result {
+    position: relative;
+}
+
+.awareness-result::before {
+    content: "";
+
+    display: block;
+
+    width: 100%;
+
+    height: 3px;
+
+    margin-bottom: 24px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(34,197,94,0.65),
+            rgba(34,197,94,0.08)
+        );
+}
+
+
+/* =========================================================
+   BETTER MOBILE CONTEXT
+   ========================================================= */
+
+@media (max-width: 560px) {
+
+    .message-context {
+        grid-template-columns: 1fr;
+    }
+
+    .context-item {
+        padding: 11px 12px;
+    }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .message-context {
+        gap: 8px;
+    }
+
+    .context-item span {
+        font-size: 6px;
+    }
+
+    .context-item strong {
+        font-size: 9px;
+    }
+
+}
+/* =========================================================
+   PHISHGUARD
+   SCENARIO-SPECIFIC MESSAGE STYLING
+   ========================================================= */
+
+
+/* =========================================================
+   BASE SUSPICIOUS MESSAGE EFFECT
+   ========================================================= */
+
+.phishing-card {
+    position: relative;
+    isolation: isolate;
+}
+
+.phishing-card::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(59,130,246,0.55),
+            transparent
+        );
+
+    opacity: 0.65;
+}
+
+
+/* =========================================================
+   URGENCY
+   ACTION REQUIRED / PRESSURE
+   ========================================================= */
+
+.phishing-card:has(.phishing-card-content.urgent) {
+    border-color:
+        rgba(251,191,36,0.18);
+
+    box-shadow:
+        0 30px 90px rgba(0,0,0,0.48),
+        0 0 45px rgba(251,191,36,0.035);
+}
+
+.phishing-card:has(.phishing-card-content.urgent)::before {
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(251,191,36,0.75),
+            transparent
+        );
+}
+
+.phishing-card:has(.phishing-card-content.urgent)
+.phishing-card-header {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(251,191,36,0.035),
+            rgba(255,255,255,0.012)
+        );
+}
+
+
+/* =========================================================
+   DANGER
+   THREAT / ACCOUNT WARNING / SECURITY ALERT
+   ========================================================= */
+
+.phishing-card:has(.phishing-card-content.danger) {
+    border-color:
+        rgba(239,68,68,0.20);
+
+    box-shadow:
+        0 30px 90px rgba(0,0,0,0.50),
+        0 0 50px rgba(239,68,68,0.045);
+}
+
+.phishing-card:has(.phishing-card-content.danger)::before {
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(239,68,68,0.80),
+            transparent
+        );
+}
+
+.phishing-card:has(.phishing-card-content.danger)
+.phishing-card-header {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(239,68,68,0.045),
+            rgba(255,255,255,0.012)
+        );
+}
+
+.phishing-card:has(.phishing-card-content.danger)
+.notification-icon {
+    color: #ef6a6a;
+
+    border-color:
+        rgba(239,68,68,0.18);
+
+    background:
+        rgba(239,68,68,0.055);
+}
+
+
+/* =========================================================
+   FINANCIAL
+   PAYMENT / FINANCIAL ALERT
+   ========================================================= */
+
+.phishing-card:has(.phishing-card-content.financial) {
+    border-color:
+        rgba(59,130,246,0.20);
+
+    box-shadow:
+        0 30px 90px rgba(0,0,0,0.48),
+        0 0 50px rgba(59,130,246,0.045);
+}
+
+.phishing-card:has(.phishing-card-content.financial)::before {
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(96,165,250,0.80),
+            transparent
+        );
+}
+
+.phishing-card:has(.phishing-card-content.financial)
+.phishing-card-header {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(59,130,246,0.05),
+            rgba(255,255,255,0.012)
+        );
+}
+
+.phishing-card:has(.phishing-card-content.financial)
+.notification-icon {
+    color: #60a5fa;
+
+    border-color:
+        rgba(96,165,250,0.18);
+
+    background:
+        rgba(59,130,246,0.055);
+}
+
+
+/* =========================================================
+   REWARD
+   GIVEAWAY / PRIZE
+   ========================================================= */
+
+.phishing-card:has(.phishing-card-content.reward) {
+    border-color:
+        rgba(168,85,247,0.20);
+
+    box-shadow:
+        0 30px 90px rgba(0,0,0,0.48),
+        0 0 55px rgba(168,85,247,0.045);
+}
+
+.phishing-card:has(.phishing-card-content.reward)::before {
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(168,85,247,0.80),
+            transparent
+        );
+}
+
+.phishing-card:has(.phishing-card-content.reward)
+.phishing-card-header {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(168,85,247,0.05),
+            rgba(255,255,255,0.012)
+        );
+}
+
+.phishing-card:has(.phishing-card-content.reward)
+.notification-icon {
+    color: #a78bfa;
+
+    border-color:
+        rgba(167,139,250,0.18);
+
+    background:
+        rgba(168,85,247,0.055);
+}
+
+
+/* =========================================================
+   DELIVERY
+   PACKAGE / SHIPMENT
+   ========================================================= */
+
+.phishing-card:has(.phishing-card-content.delivery) {
+    border-color:
+        rgba(20,184,166,0.20);
+
+    box-shadow:
+        0 30px 90px rgba(0,0,0,0.48),
+        0 0 50px rgba(20,184,166,0.04);
+}
+
+.phishing-card:has(.phishing-card-content.delivery)::before {
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(45,212,191,0.80),
+            transparent
+        );
+}
+
+.phishing-card:has(.phishing-card-content.delivery)
+.phishing-card-header {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(20,184,166,0.045),
+            rgba(255,255,255,0.012)
+        );
+}
+
+.phishing-card:has(.phishing-card-content.delivery)
+.notification-icon {
+    color: #2dd4bf;
+
+    border-color:
+        rgba(45,212,191,0.18);
+
+    background:
+        rgba(20,184,166,0.055);
+}
+
+
+/* =========================================================
+   SUSPICIOUS MESSAGE BODY
+   ========================================================= */
+
+.phishing-card-content {
+    position: relative;
+}
+
+.phishing-card-content::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 24px;
+    right: 24px;
+
+    height: 1px;
+
+    background:
+        rgba(255,255,255,0.035);
+}
+
+
+/* =========================================================
+   CONTEXT BOXES
+   MORE LIKE A REAL NOTIFICATION
+   ========================================================= */
+
+.context-item {
+    position: relative;
+
+    overflow: hidden;
+}
+
+.context-item::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 2px;
+
+    background:
+        rgba(255,255,255,0.08);
+}
+
+.phishing-card-content.urgent
+.context-item::before {
+    background: #fbbf24;
+}
+
+.phishing-card-content.danger
+.context-item::before {
+    background: #ef4444;
+}
+
+.phishing-card-content.financial
+.context-item::before {
+    background: #60a5fa;
+}
+
+.phishing-card-content.reward
+.context-item::before {
+    background: #a78bfa;
+}
+
+.phishing-card-content.delivery
+.context-item::before {
+    background: #2dd4bf;
+}
+
+
+/* =========================================================
+   CTA VARIATIONS
+   ========================================================= */
+
+.phishing-card-content.urgent
+.phishing-cta {
+    background:
+        linear-gradient(
+            135deg,
+            #d99d19,
+            #b77908
+        );
+
+    box-shadow:
+        0 12px 30px rgba(217,157,25,0.18);
+}
+
+.phishing-card-content.danger
+.phishing-cta {
+    background:
+        linear-gradient(
+            135deg,
+            #dc4545,
+            #b91c1c
+        );
+
+    box-shadow:
+        0 12px 30px rgba(220,69,69,0.18);
+}
+
+.phishing-card-content.financial
+.phishing-cta {
+    background:
+        linear-gradient(
+            135deg,
+            #3b82f6,
+            #1d4ed8
+        );
+}
+
+.phishing-card-content.reward
+.phishing-cta {
+    background:
+        linear-gradient(
+            135deg,
+            #8b5cf6,
+            #6d28d9
+        );
+
+    box-shadow:
+        0 12px 30px rgba(139,92,246,0.20);
+}
+
+.phishing-card-content.delivery
+.phishing-cta {
+    background:
+        linear-gradient(
+            135deg,
+            #14b8a6,
+            #0f766e
+        );
+
+    box-shadow:
+        0 12px 30px rgba(20,184,166,0.18);
+}
+
+
+/* =========================================================
+   CTA HOVER
+   ========================================================= */
+
+.phishing-card-content.urgent
+.phishing-cta:hover {
+    filter: brightness(1.08);
+}
+
+.phishing-card-content.danger
+.phishing-cta:hover {
+    filter: brightness(1.08);
+}
+
+.phishing-card-content.financial
+.phishing-cta:hover {
+    filter: brightness(1.08);
+}
+
+.phishing-card-content.reward
+.phishing-cta:hover {
+    filter: brightness(1.08);
+}
+
+.phishing-card-content.delivery
+.phishing-cta:hover {
+    filter: brightness(1.08);
+}
+
+
+/* =========================================================
+   ALERT GLOW
+   ========================================================= */
+
+.phishing-card-content.danger
+.phishing-alert {
+    box-shadow:
+        0 0 20px rgba(239,68,68,0.035);
+}
+
+.phishing-card-content.financial
+.phishing-alert {
+    box-shadow:
+        0 0 20px rgba(59,130,246,0.035);
+}
+
+.phishing-card-content.reward
+.phishing-alert {
+    box-shadow:
+        0 0 20px rgba(168,85,247,0.035);
+}
+
+.phishing-card-content.delivery
+.phishing-alert {
+    box-shadow:
+        0 0 20px rgba(20,184,166,0.035);
+}
+
+
+/* =========================================================
+   MESSAGE EMPHASIS
+   ========================================================= */
+
+.phishing-card-content.danger
+.phishing-headline {
+    letter-spacing: -0.04em;
+}
+
+.phishing-card-content.financial
+.phishing-headline {
+    letter-spacing: -0.035em;
+}
+
+.phishing-card-content.reward
+.phishing-headline {
+    letter-spacing: -0.045em;
+}
+
+.phishing-card-content.delivery
+.phishing-headline {
+    letter-spacing: -0.035em;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .phishing-card-content::before {
+        left: 15px;
+        right: 15px;
+    }
+
+}
+/* =========================================================
+   SCENARIO DETAIL BLOCKS
+   ========================================================= */
+
+.scenario-details {
+    margin: 20px 0;
+
+    border: 1px solid rgba(255,255,255,0.07);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    background:
+        rgba(0,0,0,0.14);
+}
+
+
+.scenario-details-heading {
+    min-height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 0 14px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.06);
+
+    background:
+        rgba(255,255,255,0.025);
+
+    color: #8e96a5;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size: 7px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.09em;
+}
+
+
+.scenario-details-heading i {
+    font-size: 11px;
+}
+
+
+.detail-row {
+    min-height: 43px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 9px 14px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.035);
+}
+
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+
+.detail-row span {
+    color: #626a79;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size: 7px;
+
+    letter-spacing: 0.04em;
+}
+
+
+.detail-row strong {
+    max-width: 65%;
+
+    color: #c5cad3;
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    text-align: right;
+
+    line-height: 1.35;
+}
+
+
+.detail-warning {
+    color: #e3b75b !important;
+}
+
+
+.detail-reward {
+    color: #b794e8 !important;
+}
+
+
+/* Financial */
+
+.financial-details
+.scenario-details-heading {
+    color: #82aef0;
+}
+
+
+/* Delivery */
+
+.delivery-details
+.scenario-details-heading {
+    color: #71bdb4;
+}
+
+
+/* Reward */
+
+.reward-details
+.scenario-details-heading {
+    color: #b294e8;
+}
+
+
+/* Security */
+
+.security-details
+.scenario-details-heading {
+    color: #e48181;
+}
+
+
+/* Verification */
+
+.verification-details
+.scenario-details-heading {
+    color: #d1b66d;
+}
+
+
+/* Urgency */
+
+.urgency-details
+.scenario-details-heading {
+    color: #d1b66d;
+}
+
+
+/* Mobile */
+
+@media (max-width: 560px) {
+
+    .detail-row {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 4px;
+    }
+
+    .detail-row strong {
+        max-width: 100%;
+
+        text-align: left;
+    }
+
+}

@@ -1,0 +1,463 @@
+:root {
+
+    --bg: #08090e;
+    --card: #101119;
+
+    --accent: #3370ff;
+    --accent-light: #62b8ff;
+
+    --text: #ffffff;
+    --soft: #a5a7b3;
+    --muted: #626570;
+
+    --border: rgba(255,255,255,0.09);
+
+    --green: #48e38b;
+
+}
+
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    font-family: "Poppins", sans-serif;
+
+}
+
+
+.awareness-background {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(51,112,255,0.13),
+            transparent 45%
+        );
+
+    z-index: -2;
+
+}
+
+
+.awareness-background::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,0.018) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.018) 1px,
+            transparent 1px
+        );
+
+    background-size: 44px 44px;
+
+}
+
+
+.awareness-page {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 50px 20px;
+
+}
+
+
+.awareness-card {
+
+    width: min(650px, 100%);
+
+    padding: 45px;
+
+    background:
+        rgba(16,17,25,0.91);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,0.45);
+
+    animation:
+        fadeUp 0.5s ease;
+
+}
+
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(18px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+.success-icon {
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background:
+        rgba(72,227,139,0.08);
+
+    border:
+        1px solid rgba(72,227,139,0.18);
+
+}
+
+
+.success-icon span {
+
+    color: var(--green);
+
+    font-size: 25px;
+
+}
+
+
+.awareness-label {
+
+    margin-top: 25px;
+
+    color: var(--accent-light);
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 0.1em;
+
+}
+
+
+.awareness-card h1 {
+
+    margin-top: 9px;
+
+    font-size: 36px;
+
+    line-height: 1.08;
+
+    letter-spacing: -0.045em;
+
+}
+
+
+.intro {
+
+    margin-top: 15px;
+
+    color: var(--soft);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+}
+
+
+.result-box {
+
+    margin-top: 27px;
+
+    padding: 4px 17px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 13px;
+
+    background:
+        rgba(255,255,255,0.02);
+
+}
+
+
+.result-row {
+
+    min-height: 47px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.05);
+
+}
+
+
+.result-row:last-child {
+
+    border-bottom: none;
+
+}
+
+
+.result-row span {
+
+    color: var(--muted);
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size: 7px;
+
+}
+
+
+.result-row strong {
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+}
+
+
+.result-row .safe {
+
+    color: var(--green);
+
+}
+
+
+.lesson-section {
+
+    display: grid;
+
+    grid-template-columns: 38px 1fr;
+
+    gap: 14px;
+
+    margin-top: 25px;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.06);
+
+}
+
+
+.lesson-number {
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background:
+        rgba(51,112,255,0.08);
+
+    color: var(--accent-light);
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size: 7px;
+
+}
+
+
+.lesson-section h2 {
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+}
+
+
+.lesson-section p {
+
+    margin-top: 5px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.75;
+
+}
+
+
+.final-message {
+
+    margin-top: 27px;
+
+    padding: 13px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 9px;
+
+    border:
+        1px solid rgba(72,227,139,0.13);
+
+    border-radius: 10px;
+
+    background:
+        rgba(72,227,139,0.035);
+
+}
+
+
+.final-dot {
+
+    width: 6px;
+    height: 6px;
+
+    flex: 0 0 auto;
+
+    margin-top: 5px;
+
+    border-radius: 50%;
+
+    background: var(--green);
+
+}
+
+
+.final-message p {
+
+    color: var(--soft);
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size: 7px;
+
+    line-height: 1.7;
+
+}
+
+
+.return-button {
+
+    height: 44px;
+
+    margin-top: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: var(--accent);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    box-shadow:
+        0 10px 30px rgba(51,112,255,0.2);
+
+}
+
+
+@media (max-width: 600px) {
+
+    .awareness-page {
+
+        padding: 25px 14px;
+
+    }
+
+    .awareness-card {
+
+        padding: 28px 20px;
+
+    }
+
+    .awareness-card h1 {
+
+        font-size: 28px;
+
+    }
+
+}

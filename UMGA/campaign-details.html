@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campaign Details</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        /* Basic reset and styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #f0f2f5;
+            padding: 40px;
+            color: #1a1a2e;
+        }
+
+        .panel {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-bottom: 24px;
+            padding: 24px 32px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .panel-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #6b7280;
+            text-transform: uppercase;
+        }
+
+        .panel-header h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        .tracking-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #6b7280;
+            background: #f3f4f6;
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+
+        .tracking-status span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #f59e0b;
+        }
+
+        .tracking-status.active span {
+            background: #10b981;
+        }
+
+        .tracking-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .tracking-row {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .tracking-row:last-of-type {
+            border-bottom: none;
+        }
+
+        .tracking-row-label {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            width: 100%;
+        }
+
+        .tracking-row-label i {
+            font-size: 18px;
+            color: #6b7280;
+            width: 24px;
+            text-align: center;
+        }
+
+        .tracking-row-label div {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .tracking-row-label div span {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #9ca3af;
+            text-transform: uppercase;
+        }
+
+        .tracking-row-label div strong {
+            font-size: 16px;
+            font-weight: 500;
+            color: #1a1a2e;
+        }
+
+        /* Click Activity Styles */
+        .tracking-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            flex-shrink: 0;
+        }
+
+        .tracking-icon i {
+            font-size: 18px;
+            color: #6b7280;
+            width: 24px;
+            text-align: center;
+        }
+
+        .tracking-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            flex: 1;
+        }
+
+        .tracking-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #9ca3af;
+            text-transform: uppercase;
+        }
+
+        .tracking-info strong {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .tracking-info small {
+            font-size: 12px;
+            color: #9ca3af;
+        }
+
+        .tracking-link-box {
+            background: #f9fafb;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-top: 4px;
+        }
+
+        .tracking-link-heading span {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #9ca3af;
+            text-transform: uppercase;
+        }
+
+        .tracking-link-input {
+            display: flex;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .tracking-link-input input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+            background: white;
+            color: #1a1a2e;
+            outline: none;
+            transition: border-color 0.2s;
+            font-family: monospace;
+        }
+
+        .tracking-link-input input:focus {
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .tracking-link-input button {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 20px;
+            background: #6366f1;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+
+        .tracking-link-input button:hover {
+            background: #4f46e5;
+        }
+
+        .tracking-link-input button:active {
+            transform: scale(0.97);
+        }
+
+        .copy-message {
+            display: block;
+            margin-top: 8px;
+            font-size: 13px;
+            color: #10b981;
+            min-height: 20px;
+        }
+
+        .copy-message.error {
+            color: #ef4444;
+        }
+
+        /* Campaign Preview Styles */
+        .campaign-preview {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .preview-field {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .preview-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #9ca3af;
+            text-transform: uppercase;
+        }
+
+        .preview-value {
+            font-size: 16px;
+            font-weight: 500;
+            color: #1a1a2e;
+            padding: 12px 16px;
+            background: #f9fafb;
+            border-radius: 8px;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+        }
+
+        .preview-value.headline {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .preview-value.message {
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        .preview-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: #6366f1;
+            color: white;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            width: fit-content;
+            min-height: 48px;
+        }
+
+        .preview-cta:empty {
+            background: #f9fafb;
+            color: #9ca3af;
+            padding: 12px 16px;
+        }
+
+        /* Back to Dashboard Button */
+        .back-dashboard-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            background: #f3f4f6;
+            color: #1a1a2e;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.1s;
+            border: 1px solid #e5e7eb;
+        }
+
+        .back-dashboard-button i {
+            font-size: 14px;
+        }
+
+        .back-dashboard-button:hover {
+            background: #e5e7eb;
+        }
+
+        .back-dashboard-button:active {
+            transform: scale(0.96);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            body {
+                padding: 16px;
+            }
+
+            .panel {
+                padding: 16px 18px;
+            }
+
+            .panel-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .tracking-link-input {
+                flex-direction: column;
+            }
+
+            .tracking-link-input button {
+                justify-content: center;
+            }
+
+            .preview-cta {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .back-dashboard-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .tracking-icon {
+                width: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =================================================
+         CAMPAIGN CONTENT
+         ================================================= -->
+
+    <section class="panel content-panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <span class="panel-label">
+                    CAMPAIGN CONTENT
+                </span>
+
+                <h2>
+                    Campaign content
+                </h2>
+
+            </div>
+
+            <!-- Back to Dashboard Button -->
+            <a
+                href="admin-dashboard.html"
+                class="back-dashboard-button"
+            >
+                <i class="fa-solid fa-arrow-left"></i>
+                Back to Dashboard
+            </a>
+
+        </div>
+
+
+        <div class="campaign-preview">
+
+            <div class="preview-field">
+
+                <span class="preview-label">
+                    HEADLINE
+                </span>
+
+                <div
+                    id="previewHeadline"
+                    class="preview-value headline"
+                >
+                    —
+                </div>
+
+            </div>
+
+
+            <div class="preview-field">
+
+                <span class="preview-label">
+                    MESSAGE
+                </span>
+
+                <div
+                    id="previewMessage"
+                    class="preview-value message"
+                >
+                    —
+                </div>
+
+            </div>
+
+
+            <div class="preview-field">
+
+                <span class="preview-label">
+                    CALL TO ACTION
+                </span>
+
+                <div
+                    id="previewCTA"
+                    class="preview-cta"
+                >
+                    —
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =================================================
+         TRACKING INFORMATION
+         ================================================= -->
+
+    <section class="panel tracking-panel">
+
+        <div class="panel-header">
+
+            <div>
+                <span class="panel-label">
+                    TRACKING INFORMATION
+                </span>
+                <h2>
+                    Campaign access
+                </h2>
+            </div>
+
+            <span id="trackingStatus" class="tracking-status">
+                <span></span>
+                Checking...
+            </span>
+
+        </div>
+
+        <div class="tracking-content">
+
+            <!-- SHORT CODE -->
+            <div class="tracking-row">
+                <div class="tracking-row-label">
+                    <i class="fa-solid fa-hashtag"></i>
+                    <div>
+                        <span>TRACKING CODE</span>
+                        <strong id="trackingCode">—</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PLATFORM -->
+            <div class="tracking-row">
+                <div class="tracking-row-label">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <div>
+                        <span>TRACKING PLATFORM</span>
+                        <strong id="trackingPlatform">—</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CLICK ACTIVITY -->
+            <div class="tracking-row">
+
+                <div class="tracking-icon">
+                    <i class="fa-solid fa-arrow-pointer"></i>
+                </div>
+
+                <div class="tracking-info">
+
+                    <span class="tracking-label">
+                        LINK CLICKS
+                    </span>
+
+                    <strong id="campaignClicks">
+                        0
+                    </strong>
+
+                    <small>
+                        Recorded interactions with this campaign link
+                    </small>
+
+                </div>
+
+            </div>
+
+            <!-- PUBLIC LINK -->
+            <div class="tracking-link-box">
+
+                <div class="tracking-link-heading">
+                    <span>CAMPAIGN LINK</span>
+                </div>
+
+                <div class="tracking-link-input">
+                    <input id="trackingLink" type="text" readonly value="">
+                    <button id="copyTrackingLink" type="button">
+                        <i class="fa-regular fa-copy"></i>
+                        Copy
+                    </button>
+                </div>
+
+                <span id="copyMessage" class="copy-message"></span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SUPABASE
+         ===================================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+
+    <!-- =====================================================
+         PHISHGUARD SUPABASE CONFIG
+         ===================================================== -->
+
+    <script src="js/supabase.js"></script>
+
+
+    <!-- =====================================================
+         CAMPAIGN DETAILS LOGIC
+         ===================================================== -->
+
+    <script src="js/campaign-details.js"></script>
+
+
+</body>
+</html>

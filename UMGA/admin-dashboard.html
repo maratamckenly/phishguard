@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard | PhishGuard</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <div class="background-grid"></div>
+
+    <div class="background-glow"></div>
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <div class="sidebar-brand">
+
+            <div class="sidebar-logo">
+
+                <img
+                    src="assets/images/um-logo.png"
+                    alt="University of Mindanao"
+                >
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    PHISHGUARD
+                </strong>
+
+                <span>
+                    ADMIN CONSOLE
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <div class="nav-label">
+                MAIN
+            </div>
+
+            <!-- DASHBOARD -->
+
+            <a
+                href="admin-dashboard.html"
+                class="nav-item active"
+            >
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <!-- CAMPAIGNS -->
+
+            <a
+                href="campaigns.html"
+                class="nav-item"
+                id="campaignsNav"
+            >
+
+                <i class="fa-solid fa-bullseye"></i>
+
+                <span>
+                    Campaigns
+                </span>
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+
+                <div>
+
+                    <strong>
+                        System Online
+                    </strong>
+
+                    <small>
+                        PHISHGUARD CORE
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="logoutButton"
+                class="logout-button"
+                type="button"
+            >
+
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+
+                Sign Out
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN DASHBOARD
+         ===================================================== -->
+
+    <main class="dashboard">
+<a
+    href="admin-dashboard.html"
+    class="back-dashboard-button"
+>
+   
+</a>
+
+        <header class="topbar">
+
+
+            <button
+                id="menuButton"
+                class="menu-button"
+                aria-label="Open menu"
+                type="button"
+            >
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+
+            <div class="topbar-title">
+
+                <span class="topbar-label">
+                    ADMINISTRATION
+                </span>
+
+
+                <h1>
+                    Dashboard
+                </h1>
+
+            </div>
+
+
+            <div class="admin-profile">
+
+                <div class="profile-status"></div>
+
+
+                <div class="profile-info">
+
+                    <strong id="admin">
+                        Administrator
+                    </strong>
+
+                    <span>
+                        ADMIN
+                    </span>
+
+                </div>
+
+
+                <div class="profile-avatar">
+
+                    <i class="fa-solid fa-user-shield"></i>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =====================================================
+             CONTENT
+             ===================================================== -->
+
+        <section class="dashboard-content">
+
+
+            <!-- WELCOME -->
+
+            <div class="welcome-row">
+
+                <div>
+
+                    <div class="section-label">
+
+                        <span></span>
+
+                        PHISHGUARD CONTROL CENTER
+
+                    </div>
+
+
+                    <h2>
+                        Simulation overview.
+                    </h2>
+
+
+                    <p>
+                        Monitor phishing-awareness campaigns
+                        and simulation activity.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="create-button"
+                    id="createCampaignButton"
+                    type="button"
+                >
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Create Campaign
+
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 STAT CARDS
+                 ================================================= -->
+
+            <div class="stats-grid">
+
+
+                <article class="stat-card">
+
+                    <div class="stat-top">
+
+                        <span>
+                            Total Campaigns
+                        </span>
+
+
+                        <div class="stat-icon">
+
+                            <i class="fa-solid fa-bullseye"></i>
+
+                        </div>
+
+                    </div>
+
+
+                    <strong id="totalCampaigns">
+                        0
+                    </strong>
+
+
+                    <div class="stat-footer">
+
+                        <span class="neutral">
+                            Campaigns created
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <div class="stat-top">
+
+                        <span>
+                            Total Clicks
+                        </span>
+
+
+                        <div class="stat-icon blue">
+
+                            <i class="fa-solid fa-arrow-pointer"></i>
+
+                        </div>
+
+                    </div>
+
+
+                    <strong id="totalClicks">
+                        0
+                    </strong>
+
+
+                    <div class="stat-footer">
+
+                        <span class="neutral">
+                            Simulation interactions
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <div class="stat-top">
+
+                        <span>
+                            Active Campaigns
+                        </span>
+
+
+                        <div class="stat-icon green">
+
+                            <i class="fa-solid fa-circle-check"></i>
+
+                        </div>
+
+                    </div>
+
+
+                    <strong id="activeCampaigns">
+                        0
+                    </strong>
+
+
+                    <div class="stat-footer">
+
+                        <span class="positive">
+                            Currently active
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <div class="stat-top">
+
+                        <span>
+                            Platforms
+                        </span>
+
+
+                        <div class="stat-icon purple">
+
+                            <i class="fa-solid fa-layer-group"></i>
+
+                        </div>
+
+                    </div>
+
+
+                    <strong>
+                        4
+                    </strong>
+
+
+                    <div class="stat-footer">
+
+                        <span class="neutral">
+                            Supported platforms
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- =================================================
+                 LOWER GRID
+                 ================================================= -->
+
+            <div class="content-grid">
+
+
+                <!-- PLATFORM -->
+
+                <section class="panel platform-panel">
+
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <span class="panel-label">
+                                PLATFORM ACTIVITY
+                            </span>
+
+
+                            <h3>
+                                Simulation clicks
+                            </h3>
+
+                        </div>
+
+
+                        <span class="live-badge">
+
+                            <span></span>
+
+                            LIVE
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="platform-list">
+
+
+                        <div class="platform-row">
+
+                            <div class="platform-name">
+
+                                <div class="platform-icon">
+
+                                    <i class="fa-brands fa-facebook-f"></i>
+
+                                </div>
+
+                                <span>
+                                    Facebook
+                                </span>
+
+                            </div>
+
+
+                            <strong id="facebookClicks">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="platform-row">
+
+                            <div class="platform-name">
+
+                                <div class="platform-icon">
+
+                                    <i class="fa-brands fa-instagram"></i>
+
+                                </div>
+
+                                <span>
+                                    Instagram
+                                </span>
+
+                            </div>
+
+
+                            <strong id="instagramClicks">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="platform-row">
+
+                            <div class="platform-name">
+
+                                <div class="platform-icon">
+
+                                    <i class="fa-brands fa-tiktok"></i>
+
+                                </div>
+
+                                <span>
+                                    TikTok
+                                </span>
+
+                            </div>
+
+
+                            <strong id="tiktokClicks">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="platform-row">
+
+                            <div class="platform-name">
+
+                                <div class="platform-icon">
+
+                                    <i class="fa-brands fa-x-twitter"></i>
+
+                                </div>
+
+                                <span>
+                                    X / Twitter
+                                </span>
+
+                            </div>
+
+
+                            <strong id="twitterClicks">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- RECENT ACTIVITY -->
+
+                <section class="panel activity-panel">
+
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <span class="panel-label">
+                                RECENT ACTIVITY
+                            </span>
+
+
+                            <h3>
+                                Latest interactions
+                            </h3>
+
+                        </div>
+
+
+                        <button
+                            class="refresh-button"
+                            id="refreshButton"
+                            type="button"
+                        >
+
+                            <i class="fa-solid fa-rotate"></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="activityList"
+                        class="activity-list"
+                    >
+
+                        <div class="empty-state">
+
+                            <div class="empty-icon">
+
+                                <i class="fa-solid fa-inbox"></i>
+
+                            </div>
+
+
+                            <strong>
+                                No activity yet
+                            </strong>
+
+
+                            <span>
+                                Simulation interactions will
+                                appear here.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+            <!-- =================================================
+                 SECURITY NOTICE
+                 ================================================= -->
+<!-- =================================================
+     CAMPAIGN OVERVIEW
+     ================================================= -->
+
+<section class="panel campaign-overview-panel">
+
+    <div class="panel-header">
+
+        <div>
+
+            <span class="panel-label">
+                CAMPAIGN OVERVIEW
+            </span>
+
+            <h3>
+                Active campaigns
+            </h3>
+
+        </div>
+
+        <a
+            href="campaigns.html"
+            class="view-all-button"
+        >
+            View all
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </div>
+
+
+    <div
+        id="campaignOverviewList"
+        class="campaign-overview-list"
+    >
+
+        <div class="campaign-loading">
+
+            <div class="loading-mini"></div>
+
+            <span>
+                Loading campaigns...
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+            <div class="security-banner">
+
+
+                <div class="security-banner-icon">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Educational Simulation Environment
+                    </strong>
+
+
+                    <p>
+                        PhishGuard is designed for controlled
+                        cybersecurity awareness activities.
+                        No social-media credentials are collected.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         SCRIPTS
+         ===================================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+
+    <script src="js/supabase.js"></script>
+
+    <script src="js/dashboard.js"></script>
+
+    <script src="js/campaign.js"></script>
+
+
+</body>
+
+</html>

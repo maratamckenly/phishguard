@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Campaigns | PhishGuard</title>
+
+
+    <!-- =====================================================
+         GOOGLE FONTS
+         ===================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         FONT AWESOME
+         ===================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- =====================================================
+         CAMPAIGN CSS
+         ===================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/campaigns.css"
+    >
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         BACKGROUND
+         ===================================================== -->
+
+    <div class="background-grid"></div>
+
+    <div class="background-glow"></div>
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- BRAND -->
+
+        <div class="sidebar-brand">
+
+            <div class="sidebar-logo">
+
+                <img
+                    src="assets/images/um-logo.png"
+                    alt="University of Mindanao"
+                >
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    PHISHGUARD
+                </strong>
+
+                <span>
+                    ADMIN CONSOLE
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+
+            <div class="nav-label">
+                MAIN
+            </div>
+
+
+            <a
+                href="admin-dashboard.html"
+                class="nav-item"
+            >
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <a
+                href="campaigns.html"
+                class="nav-item active"
+            >
+
+                <i class="fa-solid fa-bullseye"></i>
+
+                <span>
+                    Campaigns
+                </span>
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- SIDEBAR BOTTOM -->
+
+        <div class="sidebar-bottom">
+
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+
+                    <strong>
+                        System Online
+                    </strong>
+
+                    <small>
+                        PHISHGUARD CORE
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="logoutButton"
+                class="logout-button"
+                type="button"
+            >
+
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+
+                <span>
+                    Sign Out
+                </span>
+
+            </button>
+
+
+        </div>
+
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+   <main class="dashboard">
+
+
+        <!-- =================================================
+             TOPBAR
+             ================================================= -->
+
+        <header class="topbar">
+
+
+            <div class="topbar-title">
+
+                <span class="topbar-label">
+                    ADMINISTRATION
+                </span>
+
+                <h1>
+                    Campaigns
+                </h1>
+
+            </div>
+
+
+            <div class="admin-profile">
+
+
+                <div class="profile-status"></div>
+
+
+                <div class="profile-info">
+
+                    <strong id="Admin">
+                        Administrator
+                    </strong>
+
+                    <span>
+                        ADMIN
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="profile-avatar"
+                    id="profileAvatar"
+                >
+
+                    <i class="fa-solid fa-user-shield"></i>
+
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+        <!-- =================================================
+             CONTENT
+             ================================================= -->
+
+        <section class="dashboard-content">
+
+
+            <!-- =================================================
+                 PAGE INTRO
+                 ================================================= -->
+
+            <div class="welcome-row">
+
+
+                <div>
+
+                    <div class="section-label">
+
+                        <span></span>
+
+                        CAMPAIGN MANAGEMENT
+
+                    </div>
+
+
+                    <h2>
+                        Simulation campaigns.
+                    </h2>
+
+
+                    <p>
+                        Create and manage controlled
+                        phishing-awareness simulations.
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="newCampaignButton"
+                    class="create-button"
+                    type="button"
+                >
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    New Campaign
+
+                </button>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 GENERATOR CARD
+                 ================================================= -->
+
+            <section
+                class="panel campaign-builder"
+                id="campaignBuilder"
+            >
+
+
+                <div class="panel-header">
+
+
+                    <div>
+
+                        <span class="section-label">
+                            CAMPAIGN BUILDER
+                        </span>
+
+                        <h3>
+                            Create Campaign
+                        </h3>
+
+                    </div>
+
+
+                </div>
+
+
+                <form
+                    id="campaignForm"
+                    novalidate
+                >
+
+
+                    <!-- ROW -->
+
+                    <div class="form-grid two-columns">
+
+
+                        <!-- CAMPAIGN NAME -->
+
+                        <div class="form-group">
+
+                            <label for="campaignName">
+                                Campaign Name
+                            </label>
+
+                            <input
+                                id="campaignName"
+                                name="campaignName"
+                                type="text"
+                                placeholder="e.g. Facebook Account Warning"
+                                autocomplete="off"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- PLATFORM -->
+
+                        <div class="form-group">
+
+                            <label for="platform">
+                                Platform
+                            </label>
+
+                            <select
+                                id="platform"
+                                name="platform"
+                                required
+                            >
+
+                                <option value="facebook">
+                                    Facebook
+                                </option>
+
+                                <option value="instagram">
+                                    Instagram
+                                </option>
+
+                                <option value="tiktok">
+                                    TikTok
+                                </option>
+
+                                <option value="twitter">
+                                    X / Twitter
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- DESCRIPTION -->
+
+                    <div class="form-group">
+
+                        <label for="campaignDescription">
+                            Campaign Description
+                        </label>
+
+                        <textarea
+                            id="campaignDescription"
+                            name="campaignDescription"
+                            rows="3"
+                            placeholder="Describe the purpose of this awareness simulation..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         AUTOMATIC GENERATOR OPTIONS
+                         ================================================= -->
+
+                    <div class="generator-section">
+
+
+                        <div class="generator-heading">
+
+                            <div>
+
+                                <span class="section-label">
+                                    AUTOMATIC GENERATOR
+                                </span>
+
+                                <h4>
+                                    Generate Simulation Content
+                                </h4>
+
+                            </div>
+
+
+                            <span class="generator-status">
+                                AI ASSISTED
+                            </span>
+
+                        </div>
+
+
+                        <div class="form-grid two-columns">
+
+
+                            <!-- SCENARIO -->
+
+                            <div class="form-group">
+
+                                <label for="scenarioType">
+                                    Scenario
+                                </label>
+
+                                <select
+                                    id="scenarioType"
+                                    name="scenarioType"
+                                >
+
+                                    <option value="threat_account_warning">
+                                        Threat / Account Warning
+                                    </option>
+
+                                    <option value="financial_alert">
+                                        Financial Alert
+                                    </option>
+
+                                    <option value="fake_giveaway">
+                                        Fake Giveaway
+                                    </option>
+
+                                    <option value="password_reset">
+                                        Password Reset
+                                    </option>
+
+                                    <option value="security_verification">
+                                        Security Verification
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- TONE -->
+
+                            <div class="form-group">
+
+                                <label for="generatorTone">
+                                    Tone
+                                </label>
+
+                                <select
+                                    id="generatorTone"
+                                    name="generatorTone"
+                                >
+
+                                    <option value="professional">
+                                        Professional
+                                    </option>
+
+                                    <option value="urgent">
+                                        Urgent
+                                    </option>
+
+                                    <option value="security">
+                                        Security Alert
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <button
+                            id="generateButton"
+                            class="secondary-button generator-button"
+                            type="button"
+                        >
+
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                            <span id="generateText">
+                                Generate Content Automatically
+                            </span>
+
+                            <span
+                                id="generateLoader"
+                                class="button-loader hidden"
+                            >
+                                <i class="fa-solid fa-spinner fa-spin"></i>
+                                Generating...
+                            </span>
+
+                        </button>
+
+
+                    </div>
+
+
+                    <!-- =================================================
+                         GENERATED CONTENT
+                         ================================================= -->
+
+                    <div
+                        id="generatedContent"
+                        class="generated-content"
+                    >
+
+
+                        <!-- HEADLINE -->
+
+                        <div class="form-group">
+
+                            <label for="headline">
+                                Headline
+                            </label>
+
+                            <input
+                                id="headline"
+                                name="headline"
+                                type="text"
+                                placeholder="Security Alert: Account Suspension Pending"
+                            >
+
+                        </div>
+
+
+                        <!-- MESSAGE -->
+
+                        <div class="form-group">
+
+                            <label for="message">
+                                Message
+                            </label>
+
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="6"
+                                placeholder="Enter the simulated phishing message..."
+                            ></textarea>
+
+                        </div>
+
+
+                        <!-- CTA + TACTIC -->
+
+                        <div class="form-grid two-columns">
+
+
+                            <div class="form-group">
+
+                                <label for="cta">
+                                    CTA Text
+                                </label>
+
+                                <input
+                                    id="cta"
+                                    name="cta"
+                                    type="text"
+                                    placeholder="Review Account"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="tactic">
+                                    Phishing Tactic
+                                </label>
+
+                                <input
+                                    id="tactic"
+                                    name="tactic"
+                                    type="text"
+                                    placeholder="Urgency and Fear of Loss"
+                                >
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- WARNING SIGNS -->
+
+                        <div class="form-group">
+
+                            <label for="warningSigns">
+                                Warning Signs
+                            </label>
+
+                            <textarea
+                                id="warningSigns"
+                                name="warningSigns"
+                                rows="5"
+                                placeholder="One warning sign per line..."
+                            ></textarea>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- =================================================
+                         ACTIVE
+                         ================================================= -->
+
+                    <label class="checkbox-row">
+
+                        <input
+                            id="campaignActive"
+                            name="campaignActive"
+                            type="checkbox"
+                            checked
+                        >
+
+                        <span>
+                            Campaign Active
+                        </span>
+
+                    </label>
+
+
+                    <!-- =================================================
+                         CREATE
+                         ================================================= -->
+
+                    <button
+                        id="createButton"
+                        class="create-button"
+                        type="submit"
+                    >
+
+                        <span id="createText">
+
+                            <i class="fa-solid fa-plus"></i>
+
+                            Create Campaign
+
+                        </span>
+
+
+                        <span
+                            id="createLoader"
+                            class="hidden"
+                        >
+
+                            <i class="fa-solid fa-spinner fa-spin"></i>
+
+                            Creating...
+
+                        </span>
+
+                    </button>
+
+
+                </form>
+
+
+            </section>
+
+
+            <!-- =================================================
+                 GENERATED LINK
+                 ================================================= -->
+
+            <section
+                id="linkResult"
+                class="panel link-result"
+                hidden
+            >
+
+
+                <div class="link-result-icon">
+
+                    <i class="fa-solid fa-link"></i>
+
+                </div>
+
+
+                <div class="link-result-content">
+
+                    <span class="section-label">
+                        SIMULATION LINK GENERATED
+                    </span>
+
+
+                    <h3>
+                        Your campaign is ready.
+                    </h3>
+
+
+                    <p>
+                        <span id="generatedPlatform">
+                            Platform
+                        </span>
+                        simulation link:
+                    </p>
+
+
+                    <div class="generated-link-box">
+
+                        <code id="generatedLink">
+                            —
+                        </code>
+
+
+                        <button
+                            id="copyLinkButton"
+                            type="button"
+                            class="copy-button"
+                        >
+
+                            <i class="fa-regular fa-copy"></i>
+
+                            Copy
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="link-actions">
+
+                        <button
+                            id="openGeneratedLink"
+                            type="button"
+                            class="secondary-button"
+                        >
+
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                            Open Simulation
+
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+            <!-- =================================================
+                 CAMPAIGN LIST
+                 ================================================= -->
+
+            <section class="panel campaigns-panel">
+
+
+                <div class="panel-header">
+
+
+                    <div>
+
+                        <span class="section-label">
+                            CAMPAIGNS
+                        </span>
+
+                        <h3>
+                            Existing simulations
+                        </h3>
+
+                    </div>
+
+
+                    <span
+                        id="campaignTotal"
+                        class="panel-count"
+                    >
+                        0 CAMPAIGNS
+                    </span>
+
+
+                </div>
+
+
+                <div
+                    id="campaignList"
+                    class="campaign-list"
+                >
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">
+                            ◈
+                        </div>
+
+                        <strong>
+                            Loading campaigns...
+                        </strong>
+
+                        <span>
+                            Please wait.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+            <!-- =================================================
+                 FOOTER NOTICE
+                 ================================================= -->
+
+            <div class="dashboard-notice">
+
+                <div class="notice-icon">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Educational Simulation Environment
+                    </strong>
+
+                    <p>
+                        PhishGuard is designed for controlled
+                        cybersecurity awareness activities.
+                        No real social-media credentials are collected.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         SUPABASE
+         ===================================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+
+    <!-- =====================================================
+         PHISHGUARD SUPABASE
+         ===================================================== -->
+
+    <script src="js/supabase.js"></script>
+
+
+    <!-- =====================================================
+         CAMPAIGN LOGIC
+         ===================================================== -->
+
+    <script src="js/campaign.js"></script>
+
+
+</body>
+
+</html>

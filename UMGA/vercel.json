@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/scholarship",
+      "source": "/scholarship/:code",
       "destination": "/campaign.html"
     }
   ]

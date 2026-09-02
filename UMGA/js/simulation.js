@@ -28,15 +28,23 @@ const errorState =
    CAMPAIGN ID
    ========================================================= */
 
-const urlParams =
-    new URLSearchParams(window.location.search);
+const urlParams = new URLSearchParams(window.location.search);
+
+const pathname = window.location.pathname.replace(/\/+$/, "");
+
+const scholarshipMatch = pathname.match(
+    /\/scholarship\/([^/]+)$/i
+);
 
 const campaignId =
     urlParams.get("campaign") ||
     urlParams.get("campaign_id");
 
 const campaignCode =
-    urlParams.get("code");
+    urlParams.get("code") ||
+    (scholarshipMatch
+        ? decodeURIComponent(scholarshipMatch[1])
+        : null);
 
 
 /* =========================================================
@@ -98,6 +106,8 @@ async function loadCampaign() {
            
            URL:
            campaign.html?code=7XZW2UMP
+           OR
+           /scholarship/EKTMULNS
         ================================================= */
 
         if (

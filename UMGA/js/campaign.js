@@ -2108,34 +2108,17 @@
     // BUILD SIMULATION URL
     // ============================================================
 
-    function buildSimulationUrl(
-        shortCode
-    ) {
-
-        const currentPath =
-            window.location.pathname;
-
-
+    function buildSimulationUrl(shortCode) {
+        const currentPath = window.location.pathname;
         const baseDirectory =
-            currentPath.substring(
-                0,
-                currentPath.lastIndexOf("/") + 1
-            );
-
-
-        // IMPORTANT:
-        // Your actual simulation file is campaign.html.
-        // Do NOT use simulation.html.
+            currentPath.substring(0, currentPath.lastIndexOf("/") + 1);
 
         return (
             window.location.origin +
             baseDirectory +
-            "campaign.html?code=" +
-            encodeURIComponent(
-                shortCode
-            )
+            "scholarship/" +
+            encodeURIComponent(shortCode)
         );
-
     }
 
 

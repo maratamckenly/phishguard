@@ -2109,20 +2109,14 @@
     // ============================================================
 
 function buildSimulationUrl(shortCode) {
-
-    const currentPath =
-        window.location.pathname;
-
+    const currentPath = window.location.pathname;
     const baseDirectory =
-        currentPath.substring(
-            0,
-            currentPath.lastIndexOf("/") + 1
-        );
+        currentPath.substring(0, currentPath.lastIndexOf("/") + 1);
 
     return (
         window.location.origin +
         baseDirectory +
-        "campaign.html?code=" +
+        "scholarship/" +
         encodeURIComponent(shortCode)
     );
 }

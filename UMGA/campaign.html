@@ -10,9 +10,13 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Security Notification | PhishGuard</title>
+    <title>PhishGuard Simulation</title>
 
-    <!-- FONTS -->
+
+    <!-- =====================================================
+         GOOGLE FONTS
+         ===================================================== -->
+
     <link
         rel="preconnect"
         href="https://fonts.googleapis.com"
@@ -29,699 +33,223 @@
         rel="stylesheet"
     >
 
-    <!-- EXISTING SIMULATION STYLE -->
+
+    <!-- =====================================================
+         FONT AWESOME
+         ===================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- =====================================================
+         SIMULATION CSS
+         ===================================================== -->
+
     <link
         rel="stylesheet"
         href="css/simulation.css"
     >
-
-    <style>
-
-        /* =====================================================
-           CAMPAIGN SECURITY PAGE
-           ===================================================== */
-
-        .campaign-page {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 30px 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-
-        .security-card {
-            width: min(460px, 100%);
-            background: rgba(15, 18, 24, 0.96);
-            border: 1px solid rgba(255, 255, 255, 0.10);
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow:
-                0 30px 80px rgba(0, 0, 0, 0.45);
-        }
-
-
-        /* =====================================================
-           MOBILE HEADER
-           ===================================================== */
-
-        .mobile-status {
-
-            height: 34px;
-
-            padding:
-                0 18px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            font-family:
-                "JetBrains Mono",
-                monospace;
-
-            font-size: 12px;
-
-            color:
-                rgba(255,255,255,0.75);
-
-            border-bottom:
-                1px solid
-                rgba(255,255,255,0.06);
-
-        }
-
-
-        .mobile-header {
-
-            padding:
-                18px;
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 12px;
-
-            border-bottom:
-                1px solid
-                rgba(255,255,255,0.07);
-
-        }
-
-
-        .security-avatar {
-
-            width: 42px;
-
-            height: 42px;
-
-            border-radius: 12px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #202630,
-                    #11151c
-                );
-
-            border:
-                1px solid
-                rgba(255,255,255,0.10);
-
-            font-size: 19px;
-
-        }
-
-
-        .security-title {
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 3px;
-
-        }
-
-
-        .security-title strong {
-
-            font-size: 14px;
-
-            color:
-                #ffffff;
-
-        }
-
-
-        .security-title span {
-
-            font-size: 11px;
-
-            color:
-                rgba(255,255,255,0.45);
-
-        }
-
-
-        .header-menu {
-
-            margin-left: auto;
-
-            color:
-                rgba(255,255,255,0.45);
-
-            letter-spacing: 2px;
-
-        }
-
-
-        /* =====================================================
-           MESSAGE
-           ===================================================== */
-
-        .security-message {
-
-            padding:
-                30px 24px 26px;
-
-        }
-
-
-        .urgent-badge {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 7px;
-
-            padding:
-                7px 10px;
-
-            border-radius: 8px;
-
-            background:
-                rgba(239, 68, 68, 0.12);
-
-            border:
-                1px solid
-                rgba(239, 68, 68, 0.22);
-
-            color:
-                #ff7777;
-
-            font-family:
-                "JetBrains Mono",
-                monospace;
-
-            font-size: 10px;
-
-            font-weight: 600;
-
-            letter-spacing: 0.08em;
-
-        }
-
-
-        .security-message h1 {
-
-            margin:
-                20px 0 14px;
-
-            font-family:
-                "Poppins",
-                sans-serif;
-
-            font-size:
-                clamp(25px, 6vw, 34px);
-
-            line-height:
-                1.12;
-
-            color:
-                #ffffff;
-
-        }
-
-
-        .security-message p {
-
-            margin:
-                0 0 14px;
-
-            color:
-                rgba(255,255,255,0.62);
-
-            font-size:
-                14px;
-
-            line-height:
-                1.75;
-
-        }
-
-
-        /* =====================================================
-           WARNING
-           ===================================================== */
-
-        .security-warning {
-
-            display: flex;
-
-            gap: 12px;
-
-            margin:
-                22px 0;
-
-            padding:
-                14px;
-
-            border-radius: 12px;
-
-            background:
-                rgba(245, 158, 11, 0.08);
-
-            border:
-                1px solid
-                rgba(245, 158, 11, 0.18);
-
-        }
-
-
-        .security-warning-icon {
-
-            color:
-                #fbbf24;
-
-            font-size: 18px;
-
-        }
-
-
-        .security-warning strong {
-
-            display: block;
-
-            margin-bottom: 4px;
-
-            color:
-                #ffffff;
-
-            font-size: 13px;
-
-        }
-
-
-        .security-warning span {
-
-            display: block;
-
-            color:
-                rgba(255,255,255,0.50);
-
-            font-size: 11px;
-
-            line-height:
-                1.5;
-
-        }
-
-
-        /* =====================================================
-           BUTTON
-           ===================================================== */
-
-        .review-button {
-
-            width: 100%;
-
-            border: 0;
-
-            border-radius: 12px;
-
-            padding:
-                15px 18px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            cursor: pointer;
-
-            background:
-                #ffffff;
-
-            color:
-                #101319;
-
-            font-family:
-                "Poppins",
-                sans-serif;
-
-            font-size: 13px;
-
-            font-weight: 600;
-
-            transition:
-                transform 0.2s ease,
-                opacity 0.2s ease;
-
-        }
-
-
-        .review-button:hover {
-
-            transform:
-                translateY(-1px);
-
-        }
-
-
-        .review-button:disabled {
-
-            opacity:
-                0.65;
-
-            cursor:
-                wait;
-
-            transform:
-                none;
-
-        }
-
-
-        /* =====================================================
-           SECURITY CENTER
-           ===================================================== */
-
-        .security-center {
-
-            margin-top:
-                20px;
-
-            padding-top:
-                16px;
-
-            border-top:
-                1px solid
-                rgba(255,255,255,0.07);
-
-        }
-
-
-        .security-center span {
-
-            display: block;
-
-            font-family:
-                "JetBrains Mono",
-                monospace;
-
-            font-size: 9px;
-
-            letter-spacing:
-                0.12em;
-
-            color:
-                rgba(255,255,255,0.35);
-
-        }
-
-
-        .security-center code {
-
-            display: block;
-
-            margin-top:
-                5px;
-
-            font-family:
-                "JetBrains Mono",
-                monospace;
-
-            font-size: 10px;
-
-            color:
-                rgba(255,255,255,0.50);
-
-            word-break:
-                break-all;
-
-        }
-
-
-        /* =====================================================
-           FOOTER
-           ===================================================== */
-
-        .security-footer {
-
-            padding:
-                14px 20px;
-
-            border-top:
-                1px solid
-                rgba(255,255,255,0.06);
-
-            text-align:
-                center;
-
-            font-family:
-                "JetBrains Mono",
-                monospace;
-
-            font-size:
-                9px;
-
-            letter-spacing:
-                0.08em;
-
-            color:
-                rgba(255,255,255,0.30);
-
-        }
-
-
-        /* =====================================================
-           RESPONSIVE
-           ===================================================== */
-
-        @media (max-width: 520px) {
-
-            .campaign-page {
-
-                padding:
-                    15px;
-
-            }
-
-
-            .security-card {
-
-                border-radius:
-                    18px;
-
-            }
-
-
-            .security-message {
-
-                padding:
-                    25px 19px 22px;
-
-            }
-
-        }
-
-    </style>
 
 </head>
 
 
 <body>
 
-    <!-- BACKGROUND -->
 
-    <div class="simulation-page">
+    <!-- =====================================================
+         BACKGROUND
+         ===================================================== -->
 
-        <div class="grid-overlay"></div>
-
-        <div class="ambient ambient-one"></div>
-
-        <div class="ambient ambient-two"></div>
+    <div class="simulation-background"></div>
 
 
-        <!-- PAGE -->
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
 
-        <main class="campaign-page">
+    <header class="simulation-header">
 
-            <section
-                class="security-card"
-                id="campaignCard"
+        <div class="simulation-brand">
+
+            <img
+                src="assets/images/um-logo.png"
+                alt="University of Mindanao"
             >
 
-                <!-- STATUS BAR -->
+            <div>
 
-                <div class="mobile-status">
+                <strong>
+                    PHISHGUARD
+                </strong>
 
-                    <span>
-                        9:41
-                    </span>
+                <span>
+                    SIMULATION ENVIRONMENT
+                </span>
 
-                    <span>
-                        ▮▮▮
-                        &nbsp;
-                        Wi-Fi
-                        &nbsp;
-                        🔋 87%
-                    </span>
+            </div>
 
-                </div>
+        </div>
 
 
-                <!-- ACCOUNT HEADER -->
+        <div class="simulation-indicator">
 
-                <header class="mobile-header">
+            <span></span>
 
-                    <div class="security-avatar">
-                        ⚠
-                    </div>
+            SIMULATION
 
+        </div>
 
-                    <div class="security-title">
-
-                        <strong>
-                            Account Security
-                        </strong>
-
-                        <span>
-                            Security Notification
-                        </span>
-
-                    </div>
+    </header>
 
 
-                    <div class="header-menu">
-                        •••
-                    </div>
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
 
-                </header>
-
-
-                <!-- MESSAGE -->
-
-                <div class="security-message">
-
-                    <div class="urgent-badge">
-
-                        ⚠
-
-                        URGENT ALERT
-
-                    </div>
+    <main class="simulation-page">
 
 
-                    <h1>
-                        Your account has been
-                        flagged for unusual activity.
-                    </h1>
+        <!-- =================================================
+             LOADING STATE
+             ================================================= -->
+
+        <div
+            id="loadingState"
+            class="loading-state"
+        >
+
+            <div class="loading-spinner"></div>
+
+            <span>
+                Loading simulation...
+            </span>
+
+        </div>
 
 
-                    <p>
-                        We detected unusual activity
-                        associated with your account.
-                    </p>
+        <!-- =================================================
+             SIMULATION
+             ================================================= -->
+
+        <section
+            id="simulationContainer"
+            class="simulation-container hidden"
+        >
 
 
-                    <p>
-                        Immediate action is required
-                        to review your account security.
-                    </p>
+            <!-- =============================================
+                 SCENARIO LABEL
+                 ============================================= -->
+
+            <div class="scenario-label">
+
+                <span></span>
+
+                <span id="scenarioPlatform">
+                    SOCIAL MEDIA
+                </span>
+
+                SIMULATION
+
+            </div>
 
 
-                    <!-- WARNING -->
+            <!-- =============================================
+                 PHISHING CARD
+                 ============================================= -->
 
-                    <div class="security-warning">
+            <div
+                id="phishingCard"
+                class="phishing-card"
+            >
 
-                        <div class="security-warning-icon">
-                            ⚠
-                        </div>
+                <!--
+                    Campaign content is generated
+                    dynamically by simulation.js.
+                -->
 
-
-                        <div>
-
-                            <strong>
-                                Immediate review required
-                            </strong>
-
-                            <span>
-                                Review the recent activity
-                                before continuing.
-                            </span>
-
-                        </div>
-
-                    </div>
+            </div>
 
 
-                    <!-- CTA -->
+            <!-- =============================================
+                 DISCLAIMER
+                 ============================================= -->
 
-                    <button
-                        id="reviewAccountButton"
-                        class="review-button"
-                        type="button"
-                    >
+            <div class="simulation-disclaimer">
 
-                        <span>
-                            Review Account
-                        </span>
+                <i class="fa-solid fa-shield-halved"></i>
 
-                        <span>
-                            →
-                        </span>
+                <span>
+                    Educational cybersecurity awareness simulation.
+                </span>
 
-                    </button>
+            </div>
 
 
-                    <!-- SECURITY CENTER -->
-
-                    <div class="security-center">
-
-                        <span>
-                            SECURITY CENTER
-                        </span>
-
-                        <code>
-                            account-security / review
-                        </code>
-
-                    </div>
-
-                </div>
+        </section>
 
 
-                <!-- FOOTER -->
+        <!-- =================================================
+             ERROR STATE
+             ================================================= -->
 
-                <footer class="security-footer">
+        <section
+            id="errorState"
+            class="error-state hidden"
+        >
 
-                    SECURITY NOTIFICATION · JUST NOW
+            <div class="error-icon">
 
-                </footer>
+                <i class="fa-solid fa-triangle-exclamation"></i>
 
-            </section>
-
-        </main>
-
-    </div>
+            </div>
 
 
-    <!-- SUPABASE -->
+            <h1>
+                Simulation unavailable
+            </h1>
+
+
+            <p>
+                This campaign link is invalid, inactive,
+                or no longer available.
+            </p>
+
+
+            <a href="index.html">
+
+                Return to PhishGuard
+
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         SUPABASE
+         ===================================================== -->
 
     <script
         src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
     ></script>
 
 
+    <!-- =====================================================
+         PHISHGUARD SUPABASE CONFIG
+         ===================================================== -->
+
     <script src="js/supabase.js"></script>
 
 
-    <!-- SIMULATION LOGIC -->
+    <!-- =====================================================
+         SIMULATION LOGIC
+         ===================================================== -->
 
     <script src="js/simulation.js"></script>
 
